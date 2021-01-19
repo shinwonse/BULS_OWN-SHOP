@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!--<head th:replace="fragments/header :: header">-->
-<!--</head>-->
+<head th:replace="fragments/header :: header">
+</head>
 
 <body>
-<!--<div th:replace="fragments/bodyHeader :: bodyHeader"></div>-->
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
   <div class="container">
       <form role="form" action="/members/new" th:object="${memberForm}" method="post">
           <div class="form-group">

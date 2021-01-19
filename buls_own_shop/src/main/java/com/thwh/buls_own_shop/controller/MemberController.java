@@ -30,15 +30,9 @@ public class MemberController {
             return "members/newMember";
         }
 
-        Address address = new Address(memberForm.getCity(), memberForm.getStreet());
-        Member member = new Member();
-        member.setUser_id(memberForm.getUser_id());
-        member.setName(memberForm.getName());
-        member.setBirth(memberForm.getBirth());
-        member.setPhoneNumber(memberForm.getPhoneNumber());
-        member.setAddress(address);
 
-        memberService.signUp(member);
+
+        memberService.signUp(memberForm);
         return "redirect:/";
     }
 
