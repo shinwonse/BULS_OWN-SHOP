@@ -8,10 +8,18 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 public class MemberForm {
-    @NotEmpty(message = "회원 이름은 필수입니다")
-    private String name;
+    @NotEmpty(message = "ID 입력은 필수입니다")
+    private String user_id;
 
-    private String age;
+    @NotEmpty(message = "이름 입력은 필수입니다")
+    private String name;
+    
+    @NotEmpty(message = "생년월일 입력은 필수입니다")
+    private String birth;
+    
+    @NotEmpty(message = "번호 입력은 필수입니다")
     private String phoneNumber;
-    private String address;
+    
+    private String city;
+    private String street;
 }
