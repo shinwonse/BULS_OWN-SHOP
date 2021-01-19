@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top " th:fragment="bodyHeader">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo"><a href="/">BULS_OWN-SHOP</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/product/glove">Glove</a></li>
+                <li><a href="/product/bat">Bat</a></li>
+                <li><a href="/product/spike">Spike</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav><!-- .nav-menu -->
+
+        <a href="/members/new" class="get-started-btn ml-auto">Register</a>
+        <a href="/members/login" class="get-started-btn ml-auto">Sign in</a>
+        <a href="/admin" class="get-started-btn ml-auto">Administrator</a>
+    </div>
+</header><!-- End Header -->
