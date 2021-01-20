@@ -30,15 +30,24 @@ public class MemberController {
             return "members/newMember";
         }
 
-
-
-        memberService.signUp(memberForm);
+        memberService.signUp(memberForm);   // MemberService 로 memberForm 객체를 넘겨서 거기서 입력받은 변수들을 받아와 가입 진행
         return "redirect:/";
     }
 
 
     @GetMapping("/members/login")
     public String loginForm(Model model) {
+        model.addAttribute("loginForm", new LoginForm());
         return "members/login";
+    }
+
+    @PostMapping("/members/login")
+    public String login(@Valid LoginForm loginForm, BindingResult result) {
+        if (result.hasErrors()) {
+            return "members/login";
+        }
+
+        memberService.signIn(loginForm);
+        return "redirect:/";
     }
 }

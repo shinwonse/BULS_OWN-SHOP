@@ -1,45 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
 </head>
 <body>
-    <header>
-        <div id="title">
-          <a class="main-menu" href="/" id="menu1">Home</a>
-          <h1>로그인</h1>
-        </div>
-
-        <nav>
-          <ul>
-            <li><h4><a class="main-menu" href="/" id="menu1">←돌아가기</a></h4></li>
-          </ul>
-        </nav>
-      </header>
-
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
     <section class="login-form">
-        <form action="">
-            <div class="int-area">
-                <label for="id">ID</label>
-                <input type="text" name="id" id="id"
-                autocomplete="off" required>
+        <form role="form" action="/members/login" th:object="${loginForm}" method="post">
+            <div class="form-group">
+                <label th:for="id">ID</label>
+                <input type="text" th:field="*{id}" class="form-control" placeholder="ID를 입력하세요"
+                       th:class="${#fields.hasErrors('id')}? 'form-control fieldError' : 'form-control'">
+                <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Incorrect ID</p>
             </div>
-            <div class="int-area">
-                <label for="pw">PASSWORD</label>
-                <input type="password" name="pw" id="password"
-                autocomplete="off" required>
+            <div class="form-group">
+                <label th:for="pw">PW</label>
+                <input type="text" th:field="*{pw}" class="form-control" placeholder="비밀번호를 입력하세요"
+                       th:class="${#fields.hasErrors('pw')}? 'form-control fieldError' : 'form-control'">
+                <p th:if="${#fields.hasErrors('pw')}" th:errors="*{pw}">Incorrect PW</p>
             </div>
             <div class="btn-area">
-                <button id="btn"
-                type="submit">LOGIN</button>
+                <button id="btn" type="submit">LOGIN</button>
             </div>
         </form>
     </section>
-
-
-
-    </section>
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
