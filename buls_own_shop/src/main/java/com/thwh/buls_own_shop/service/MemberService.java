@@ -1,5 +1,6 @@
 package com.thwh.buls_own_shop.service;
 
+import com.thwh.buls_own_shop.controller.LoginForm;
 import com.thwh.buls_own_shop.controller.MemberForm;
 import com.thwh.buls_own_shop.domain.Address;
 import com.thwh.buls_own_shop.domain.Member;
@@ -23,13 +24,8 @@ public class MemberService {
     @Transactional
     public Long signUp(MemberForm memberForm) {
         Address address = new Address(memberForm.getCity(), memberForm.getStreet());
-        Member member = new Member();
-
-        member.setUser_id(memberForm.getUser_id());
-        member.setName(memberForm.getName());
-        member.setBirth(memberForm.getBirth());
-        member.setPhoneNumber(memberForm.getPhoneNumber());
-        member.setAddress(address);
+        Member member = new Member(memberForm.getName(), memberForm.getUser_id(), memberForm.getPw(), memberForm.getBirth(),
+                                        memberForm.getPhoneNumber(), address);
 
         validateDuplicateMember(member); // 아이디 중복되는 회원 체크
         memberRepository.save(member);   // 레포지토리에 저장(DB로 슝)
@@ -43,6 +39,22 @@ public class MemberService {
         }
     }
 
+    /**
+     * 로그인
+     */
+    public String signIn(LoginForm loginForm) {
+        Member member = memberRepository.findOne(loginForm.getId());
+        if(member == null){
+            throw new IllegalStateException("존재하지 않는 ID입니다.");
+        }
+        else{
+            if(member.getPw().equals(loginForm.getPw()))
+                return member.getUser_id();
+            else
+                throw new IllegalStateException("잘못된 PW입니다.");
+        }
+    }
+
     // 회원 전체 조회
     // @Transactional(readOnly = true)
     public List<Member> findMembers(){
@@ -51,7 +63,9 @@ public class MemberService {
 
     //회원 한 명 조회
     // @Transactional(readOnly = true)
-    public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
+    public Member findOne(String id) {
+        return memberRepository.findOne(id);
     }
+
+   
 }

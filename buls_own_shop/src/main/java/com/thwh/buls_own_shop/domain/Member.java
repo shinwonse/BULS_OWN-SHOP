@@ -12,11 +12,14 @@ import java.util.List;
 @Getter @Setter
 public class Member {
 
-    @Id @GeneratedValue
+    @GeneratedValue
     @Column(name = "original_id")
     private Long original_id;
 
+    @Id
     private String user_id;
+
+    private String pw;
     private String birth;
     private String name;
     private String phoneNumber;
@@ -24,6 +27,19 @@ public class Member {
     @Embedded
     private Address address;
 
-//    @OneToMany(mappedBy = "member")
+    protected Member() { }
+
+    public Member(String name, String user_id, String pw, String birth,  String phoneNumber, Address address) {
+        this.name = name;
+        this.user_id = user_id;
+        this.pw = pw;
+        this.birth = birth;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+
+
+    //    @OneToMany(mappedBy = "member")
 //    private List<Order> orders = new ArrayList<>();
 }

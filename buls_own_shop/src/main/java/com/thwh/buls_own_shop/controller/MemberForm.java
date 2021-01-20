@@ -11,6 +11,9 @@ public class MemberForm {
     @NotEmpty(message = "ID 입력은 필수입니다")
     private String user_id;
 
+    @NotEmpty(message = "비밀번호 입력은 필수입니다")
+    private String pw;
+
     @NotEmpty(message = "이름 입력은 필수입니다")
     private String name;
     
