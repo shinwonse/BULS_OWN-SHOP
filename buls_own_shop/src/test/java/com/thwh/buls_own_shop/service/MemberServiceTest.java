@@ -27,17 +27,20 @@ class MemberServiceTest {
 
     @Test
     public void 로그인_존재하지않는아이디_테스트(){
+        //
         MemberForm memberForm = new MemberForm();
         memberForm.setUser_id("abc");
         memberForm.setName("A");
         memberForm.setPw("1234");
         memberForm.setBirth("990101");
+        memberService.signUp(memberForm);
 
+        //
         LoginForm loginForm = new LoginForm();
         loginForm.setId("abcㅇ");
         loginForm.setPw("1234");
 
-        memberService.signUp(memberForm);
+
         try {
             memberService.signIn(loginForm);
         } catch (IllegalStateException e) {
