@@ -7,7 +7,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("M")
+@DiscriminatorValue("S")
 @Getter
 @Setter
 public class Spike extends Product{

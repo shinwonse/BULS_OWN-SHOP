@@ -7,7 +7,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("M")
+@DiscriminatorValue("B")
 @Getter
 @Setter
 public class Bat extends Product{

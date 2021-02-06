@@ -1,5 +1,6 @@
 package com.thwh.buls_own_shop.domain.product;
 
+import com.thwh.buls_own_shop.domain.Category;
 import com.thwh.buls_own_shop.exception.NotEnoughException;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,14 +17,14 @@ import java.util.List;
 public abstract class Product {
     @Id
     @GeneratedValue
-    @Column(name = "item_id")
+    @Column(name = "product_id")
     private Long id;
 
     private String name;
     private int price;
     private int stockQuantity;
 
-//    @ManyToMany(mappedBy = "items")
+//    @ManyToMany(mappedBy = "products")
 //    private List<Category> categories = new ArrayList<>();
 
     //==비즈니스 로직==//
