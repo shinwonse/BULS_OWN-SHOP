@@ -13,6 +13,5 @@ class ProductServiceTest {
     ProductService productService;
 
     void 제품_업데이트_테스트() {
-        Glove glove = new
     }
 }
