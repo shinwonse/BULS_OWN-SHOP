@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="29044db1-e255-4ed4-b2f1-c54f1f8b98ef" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="b537f6b2-34d9-47f9-b821-213795fee6ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+    </list>
+>>>>>>> jongeun
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +16,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1nxK0ZeiOLGsTfCKwY3pQfVLx8Z" />
+=======
+  <component name="ProjectId" id="1nHdOWpSt4jQmIoI9BJFu8yN1bM" />
+>>>>>>> jongeun
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -20,19 +30,32 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> jongeun
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="29044db1-e255-4ed4-b2f1-c54f1f8b98ef" name="Default Changelist" comment="" />
       <created>1612326083354</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612326083354</updated>
       <workItem from="1612326085210" duration="87000" />
+=======
+      <changelist id="b537f6b2-34d9-47f9-b821-213795fee6ce" name="Default Changelist" comment="" />
+      <created>1611050918473</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611050918473</updated>
+      <workItem from="1611050919663" duration="2897000" />
+>>>>>>> jongeun
     </task>
     <servers />
   </component>
