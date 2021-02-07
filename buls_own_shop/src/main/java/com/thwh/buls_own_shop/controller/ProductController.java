@@ -20,11 +20,23 @@ public class ProductController {
     @GetMapping("/product/glove")
     public String glove_list(Model model) {
         Glove glove = new Glove();
-        glove.setName("제트");
-
+        glove.setName("제트 BPROG760 (1900) 프로 스테이터스 세컨드 11.5인치 내야 글러브 (블랙)");
+        glove.setBrand("Zett");
+        glove.setPosition("내야");
+        glove.setPrice(1000);
+        glove.setStockQuantity(10);
+        productService.saveProduct(glove);
         List<Product> gloves = productService.findProducts();
         model.addAttribute("items", gloves);
         return "/product/glove/glove_list";
+    }
+
+    @GetMapping("/product/glove/glove_buy/{id}")
+    public String glove_buy(@PathVariable("id") Long id, Model model) {
+        Glove glove = (Glove) productService.findOne(id);
+        glove.setId(glove.getId());
+        glove.setName(glove.getName());
+        return "/product/glove/glove_buy";
     }
 
     @GetMapping("/product/bat")
@@ -40,9 +52,4 @@ public class ProductController {
         model.addAttribute("items", spikes);
         return "/product/spike/spike_list";
     }
-
-//    @GetMapping("/product/glove/{glovdId}/buy")
-//    public String glove_buy(@PathVariable("gloveId") Long gloveId, Model model) {
-//
-//    }
 }

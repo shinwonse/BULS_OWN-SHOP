@@ -28,10 +28,11 @@ public class ProductService {
         return productRepository.findOne(productId);
     }
 
-    public Product updateProduct(Long productId, String name, int price, int stockQuantity) {
+    public Product updateProduct(Long productId, String name, String brand, int price, int stockQuantity) {
         Product product = productRepository.findOne(productId);
         product.setId(productId);
         product.setName(name);
+        product.setBrand(brand);
         product.setPrice(price);
         product.setStockQuantity(stockQuantity);
         return product;

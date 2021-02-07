@@ -28,29 +28,31 @@
         <div class="container">
 
             <div class="row">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>상품명</th>
-                        <th>가격</th>
-                        <th>재고수량</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="gloves : ${items}">
-                        <td th:text="${gloves.id}"></td>
-                        <td th:text="${gloves.name}"></td>
-                        <td th:text="${gloves.price}"></td>
-                        <td th:text="${gloves.stockQuantity}"></td>
-                        <td>
-                            <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${gloves.id})}"
-                               class="btn btn-primary" role="button">수정</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div  th:each="gloves : ${items}" class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                    <article class="entry">
+                        <table class="table table-striped">
+                            <div>
+                                <div class="entry-img">
+                                    <img src="/img/glove_images/glove_ex.jpg" alt="" class="img-fluid">
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="icofont-user" th:text="${gloves.brand}"></i></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
+                                    </ul>
+                                </div>
+                                <h2 th:text="${gloves.name}" class="entry-title">
+                                </h2>
+                                <div class="entry-content">
+                                    <p th:text="${gloves.price}"></p>
+                                    <div class="read-more">
+                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${gloves.id})}">Buy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </table>
+                    </article><!-- End blog entry -->
+                </div>
             </div>
 
             <div class="blog-pagination" data-aos="fade-up">
