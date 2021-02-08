@@ -8,6 +8,12 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+#wonse1{
+  width: 400px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 .wonse{
   display: block;
   margin-left: auto;
