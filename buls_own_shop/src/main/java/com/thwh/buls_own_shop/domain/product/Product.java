@@ -22,6 +22,7 @@ public abstract class Product {
 
     private String name;
     private String brand;
+    private String imageLink;
     private int price;
     private int stockQuantity;
 

@@ -22,7 +22,9 @@ public class ProductController {
         Glove glove = new Glove();
         glove.setName("제트 BPROG760 (1900) 프로 스테이터스 세컨드 11.5인치 내야 글러브 (블랙)");
         glove.setBrand("Zett");
+        glove.setImageLink("/img/glove_images/glove_ex.jpg");
         glove.setPosition("내야");
+        glove.setSize_glove(11.5);
         glove.setPrice(1000);
         glove.setStockQuantity(10);
         productService.saveProduct(glove);
@@ -36,6 +38,11 @@ public class ProductController {
         Glove glove = (Glove) productService.findOne(id);
         glove.setId(glove.getId());
         glove.setName(glove.getName());
+        glove.setBrand(glove.getBrand());
+        glove.setImageLink(glove.getImageLink());
+        glove.setSize_glove(glove.getSize_glove());
+        glove.setPrice(glove.getPrice());
+        model.addAttribute("glove",glove);
         return "/product/glove/glove_buy";
     }
 

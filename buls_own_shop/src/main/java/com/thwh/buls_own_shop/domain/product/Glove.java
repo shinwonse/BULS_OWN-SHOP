@@ -12,5 +12,5 @@ import javax.persistence.Entity;
 @Setter
 public class Glove extends Product{
     private String position;
-    private int size_glove;
+    private double size_glove;
 }

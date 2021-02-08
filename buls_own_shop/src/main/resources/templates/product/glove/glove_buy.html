@@ -19,14 +19,45 @@
       </div>
     </div>
   </section><!-- End Breadcrumbs -->
-
   <!-- ======= Blog Section ======= -->
-  <section id="blog" class="blog">
+  <section id="portfolio-details" class="portfolio-details">
     <div class="container">
-      <div>
-        <p th:text="${gloves.name}"></p>
+
+      <div class="row">
+
+        <div class="col-lg-8">
+          <img th:src="${glove.imageLink}" class="wonse">
+        </div>
+
+        <div class="col-lg-4 portfolio-info">
+          <h3 th:text="${glove.name}"></h3>
+          <table>
+            <tr>
+              <th>Brand: </th>
+              <td th:text="${glove.brand}"></td>
+            </tr>
+            <tr>
+              <th>Position: </th>
+              <td th:text="${glove.position}"></td>
+            </tr>
+            <tr>
+              <th>Size: </th>
+              <td th:text="${glove.size_glove}"></td>
+            </tr>
+            <tr>
+              <th>Price: </th>
+              <td th:text="${glove.price}"></td>
+            </tr>
+          </table>
+          <p>
+            Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+          </p>
+        </div>
+
       </div>
+
     </div>
-  </section><!-- End Blog Section -->
+  </section><!-- End Portfolio Details Section -->
 </main><!-- End #main -->
+</body>
 <div th:replace="fragments/footer :: footer"></div>
