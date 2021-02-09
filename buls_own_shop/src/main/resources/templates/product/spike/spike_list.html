@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+
+<body>
+
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Glove</h2>
+                <ol>
+                    <li><a href="/main.html">Home</a></li>
+                    <li>Glove</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container">
+
+            <div class="row">
+                <div  th:each="spikes : ${items}" class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                    <article class="entry">
+                        <table class="table table-striped">
+                            <div>
+                                <div class="entry-img">
+                                    <img th:src="${spikes.imageLink}" alt="" class="img-fluid">
+                                </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li class="d-flex align-items-center"><i class="icofont-user" th:text="${spikes.brand}"></i></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
+                                    </ul>
+                                </div>
+                                <h2 th:text="${spikes.name}" class="entry-title">
+                                </h2>
+                                <div class="entry-content">
+                                    <p th:text="${spikes.price}"></p>
+                                    <div class="read-more">
+                                        <a href="#" th:href="@{/product/spike/spike_buy/{id} (id=${spikes.id})}">Enter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </table>
+                    </article><!-- End blog entry -->
+                </div>
+            </div>
+
+            <div class="blog-pagination" data-aos="fade-up">
+                <ul class="justify-content-center">
+                    <li class="disabled"><i class="icofont-rounded-left"></i></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+<div th:replace="fragments/footer :: footer"></div>

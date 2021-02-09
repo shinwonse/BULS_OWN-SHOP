@@ -8,6 +8,19 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+#wonse1{
+  width: 400px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.wonse{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 400px;
+}
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
