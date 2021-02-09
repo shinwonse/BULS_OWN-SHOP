@@ -47,6 +47,7 @@ public class MemberController {
             return "members/login";
         }
 
+
         memberService.signIn(loginForm);
         return "redirect:/";
     }
