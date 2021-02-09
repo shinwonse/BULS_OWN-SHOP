@@ -1,7 +1,9 @@
 package com.thwh.buls_own_shop.controller;
 
+import com.thwh.buls_own_shop.domain.product.Bat;
 import com.thwh.buls_own_shop.domain.product.Glove;
 import com.thwh.buls_own_shop.domain.product.Product;
+import com.thwh.buls_own_shop.domain.product.Spike;
 import com.thwh.buls_own_shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -40,8 +42,10 @@ public class ProductController {
         glove.setName(glove.getName());
         glove.setBrand(glove.getBrand());
         glove.setImageLink(glove.getImageLink());
-        glove.setSize_glove(glove.getSize_glove());
+        glove.setStockQuantity(glove.getStockQuantity());
         glove.setPrice(glove.getPrice());
+        glove.setSize_glove(glove.getSize_glove());
+        glove.setPosition(glove.getPosition());
         model.addAttribute("glove",glove);
         return "/product/glove/glove_buy";
     }
@@ -53,10 +57,40 @@ public class ProductController {
         return "/product/bat/bat_list";
     }
 
+    @GetMapping("/product/glove/bat_buy/{id}")
+    public String bat_buy(@PathVariable("id") Long id, Model model) {
+        Bat bat = (Bat) productService.findOne(id);
+        bat.setId(bat.getId());
+        bat.setName(bat.getName());
+        bat.setBrand(bat.getBrand());
+        bat.setImageLink(bat.getImageLink());
+        bat.setPrice(bat.getPrice());
+        bat.setStockQuantity(bat.getStockQuantity());
+        bat.setSize_bat(bat.getSize_bat());
+        bat.setMaterial(bat.getMaterial());
+        model.addAttribute("bat",bat);
+        return "/product/glove/bat_buy";
+    }
+
     @GetMapping("/product/spike")
     public String spike_list(Model model) {
         List<Product> spikes = productService.findProducts();
         model.addAttribute("items", spikes);
         return "/product/spike/spike_list";
+    }
+
+    @GetMapping("/product/glove/spike_buy/{id}")
+    public String spike_buy(@PathVariable("id") Long id, Model model) {
+        Spike spike = (Spike) productService.findOne(id);
+        spike.setId(spike.getId());
+        spike.setName(spike.getName());
+        spike.setBrand(spike.getBrand());
+        spike.setImageLink(spike.getImageLink());
+        spike.setPrice(spike.getPrice());
+        spike.setStockQuantity(spike.getStockQuantity());
+        spike.setSize_spike(spike.getSize_spike());
+        spike.setSole(spike.getSole());
+        model.addAttribute("spike",spike);
+        return "/product/glove/spike_buy";
     }
 }
