@@ -25,12 +25,12 @@ public class ProductController {
         glove.setName("제트 BPROG760 (1900) 프로 스테이터스 세컨드 11.5인치 내야 글러브 (블랙)");
         glove.setBrand("Zett");
         glove.setImageLink("/img/glove_images/glove_ex.jpg");
-        glove.setPosition("내야");
+        glove.setPosition("내야11");
         glove.setSize_glove(11.5);
         glove.setPrice(1000);
         glove.setStockQuantity(10);
         productService.saveProduct(glove);
-        List<Product> gloves = productService.findProducts();
+        List<Glove> gloves = productService.findGloves();
         model.addAttribute("items", gloves);
         return "/product/glove/glove_list";
     }
@@ -52,7 +52,7 @@ public class ProductController {
 
     @GetMapping("/product/bat")
     public String bat_list(Model model) {
-        List<Product> bats = productService.findProducts();
+        List<Bat> bats = productService.findBats();
         model.addAttribute("items", bats);
         return "/product/bat/bat_list";
     }
@@ -74,7 +74,7 @@ public class ProductController {
 
     @GetMapping("/product/spike")
     public String spike_list(Model model) {
-        List<Product> spikes = productService.findProducts();
+        List<Spike> spikes = productService.findSpikes();
         model.addAttribute("items", spikes);
         return "/product/spike/spike_list";
     }

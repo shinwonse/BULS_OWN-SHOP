@@ -1,10 +1,15 @@
 package com.thwh.buls_own_shop.repository;
 
+import com.thwh.buls_own_shop.domain.product.Bat;
+import com.thwh.buls_own_shop.domain.product.Glove;
 import com.thwh.buls_own_shop.domain.product.Product;
+import com.thwh.buls_own_shop.domain.product.Spike;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Repository
@@ -28,5 +33,41 @@ public class ProductRepository {
     public List<Product> findAll() {
         return em.createQuery("select p from Product p", Product.class)
                 .getResultList();
+    }
+
+    public List<Glove> findGloves() {
+        List<Product> products = findAll();
+        Iterator<Product> it = products.iterator();
+        List<Glove> gloves = new ArrayList<>();
+        while (it.hasNext()) {
+            Product next = it.next();
+            if(next.getClass() == Glove.class)
+                gloves.add((Glove) next);
+        }
+        return gloves;
+    }
+
+    public List<Bat> findBats() {
+        List<Product> products = findAll();
+        Iterator<Product> it = products.iterator();
+        List<Bat> bats = new ArrayList<>();
+        while (it.hasNext()) {
+            Product next = it.next();
+            if(next.getClass() == Bat.class)
+                bats.add((Bat) next);
+        }
+        return bats;
+    }
+
+    public List<Spike> findSpikes() {
+        List<Product> products = findAll();
+        Iterator<Product> it = products.iterator();
+        List<Spike> spikes = new ArrayList<>();
+        while (it.hasNext()) {
+            Product next = it.next();
+            if(next.getClass() == Spike.class)
+                spikes.add((Spike) next);
+        }
+        return spikes;
     }
 }

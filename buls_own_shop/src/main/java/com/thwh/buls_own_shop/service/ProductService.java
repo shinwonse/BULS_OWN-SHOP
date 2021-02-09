@@ -1,6 +1,9 @@
 package com.thwh.buls_own_shop.service;
 
+import com.thwh.buls_own_shop.domain.product.Bat;
+import com.thwh.buls_own_shop.domain.product.Glove;
 import com.thwh.buls_own_shop.domain.product.Product;
+import com.thwh.buls_own_shop.domain.product.Spike;
 import com.thwh.buls_own_shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +27,18 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public List<Glove> findGloves() {
+        return productRepository.findGloves();
+    }
+
+    public List<Bat> findBats() {
+        return productRepository.findBats();
+    }
+
+    public List<Spike> findSpikes() {
+        return productRepository.findSpikes();
+    }
+
     public Product findOne(Long productId) {
         return productRepository.findOne(productId);
     }
@@ -38,4 +53,6 @@ public class ProductService {
         product.setStockQuantity(stockQuantity);
         return product;
     }
+
+
 }
