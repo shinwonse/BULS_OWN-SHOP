@@ -57,7 +57,7 @@ public class ProductController {
         return "/product/bat/bat_list";
     }
 
-    @GetMapping("/product/glove/bat_buy/{id}")
+    @GetMapping("/product/bat/bat_buy/{id}")
     public String bat_buy(@PathVariable("id") Long id, Model model) {
         Bat bat = (Bat) productService.findOne(id);
         bat.setId(bat.getId());
@@ -69,7 +69,7 @@ public class ProductController {
         bat.setSize_bat(bat.getSize_bat());
         bat.setMaterial(bat.getMaterial());
         model.addAttribute("bat",bat);
-        return "/product/glove/bat_buy";
+        return "/product/bat/bat_buy";
     }
 
     @GetMapping("/product/spike")
@@ -79,7 +79,7 @@ public class ProductController {
         return "/product/spike/spike_list";
     }
 
-    @GetMapping("/product/glove/spike_buy/{id}")
+    @GetMapping("/product/spike/spike_buy/{id}")
     public String spike_buy(@PathVariable("id") Long id, Model model) {
         Spike spike = (Spike) productService.findOne(id);
         spike.setId(spike.getId());
@@ -91,6 +91,6 @@ public class ProductController {
         spike.setSize_spike(spike.getSize_spike());
         spike.setSole(spike.getSole());
         model.addAttribute("spike",spike);
-        return "/product/glove/spike_buy";
+        return "/product/spike/spike_buy";
     }
 }

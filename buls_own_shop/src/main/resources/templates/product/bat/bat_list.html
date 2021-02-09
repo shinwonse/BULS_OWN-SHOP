@@ -28,25 +28,25 @@
         <div class="container">
 
             <div class="row">
-                <div  th:each="gloves : ${items}" class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                <div  th:each="bats : ${items}" class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
                     <article class="entry">
                         <table class="table table-striped">
                             <div>
                                 <div class="entry-img">
-                                    <img th:src="${gloves.imageLink}" alt="" class="img-fluid">
+                                    <img th:src="${bats.imageLink}" alt="" class="img-fluid">
                                 </div>
                                 <div class="entry-meta">
                                     <ul>
-                                        <li class="d-flex align-items-center"><i class="icofont-user" th:text="${gloves.brand}"></i></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-user" th:text="${bats.brand}"></i></li>
                                         <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
                                     </ul>
                                 </div>
-                                <h2 th:text="${gloves.name}" class="entry-title">
+                                <h2 th:text="${bats.name}" class="entry-title">
                                 </h2>
                                 <div class="entry-content">
-                                    <p th:text="${gloves.price}"></p>
+                                    <p th:text="${bats.price}"></p>
                                     <div class="read-more">
-                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${gloves.id})}">Enter</a>
+                                        <a href="#" th:href="@{/product/bat/bat_buy/{id} (id=${bats.id})}">Enter</a>
                                     </div>
                                 </div>
                             </div>
