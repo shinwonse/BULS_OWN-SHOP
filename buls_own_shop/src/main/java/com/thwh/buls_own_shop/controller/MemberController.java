@@ -62,6 +62,9 @@ public class MemberController {
         session.removeAttribute("member");
         return "redirect:/";
     }
+    @RequestMapping("/members/myPage")
+    public String myPage(){
 
-
+        return "myPage/myPage";
+    }
 }

@@ -20,10 +20,11 @@
             </ul>
 
         </nav><!-- .nav-menu -->
+
         <div th:if = "${session.member == null}">
             <a href="/members/new" class="get-started-btn ml-auto">Register</a>
             <a href="/members/login" class="get-started-btn ml-auto">Sign in</a>
-            <a href="/admin" class="get-started-btn ml-auto">Administrator</a>
+
         </div>
         <div th:if = "${session.member != null}">
             <a href="/members/logout" class="get-started-btn ml-auto">Logout</a>
