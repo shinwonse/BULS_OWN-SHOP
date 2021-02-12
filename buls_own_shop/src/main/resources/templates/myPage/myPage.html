@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header">
-    <meta charset="utf-8">
-    <title>마이 페이지</title>
-    <link rel="stylesheet" href="jquery.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="jquery.js"></script>
 </head>
+
 <body>
+
 <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
-<header>
-    <div id="title">=
-        <h1>마이 페이지 - 구매 목록</h1>
-    </div>
-</header>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>My Page</h2>
+                <ol>
+                    <li><a href="/main.html">Home</a></li>
+                    <li>My Page</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
 <div id="ctime">
     <table class="table table-striped">
         <thead>
@@ -47,9 +52,7 @@
         </tbody>
     </table>
 </div>
-
-
-
 <div th:replace="fragments/footer :: footer"></div>
+</main>
 </body>
 </html>
