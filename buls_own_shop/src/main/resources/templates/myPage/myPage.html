@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
     <meta charset="utf-8">
     <title>마이 페이지</title>
     <link rel="stylesheet" href="jquery.css">
@@ -11,17 +11,11 @@
     <script src="jquery.js"></script>
   </head>
   <body>
+  <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
     <header>
-      <div id="title">
-          <a class="main-menu" href="/" id="menu1">Home</a>
+      <div id="title">=
         <h1>마이 페이지 - 구매 목록</h1>
       </div>
-
-      <nav>
-        <ul>
-          <li><h4><a class="main-menu" href="/" id="menu1">←돌아가기</a></h4></li>
-        </ul>
-      </nav>
     </header>
     <div id="ctime">
       <table class="table table-striped">
@@ -55,10 +49,7 @@
     </div>
 
 
-    <footer>
-      <p>한상우 없는 한상우팀</p>
-      <p>Created by EuiJae-Jeong</p>
-    </footer>
 
+  <div th:replace="fragments/footer :: footer"></div>
   </body>
 </html>
