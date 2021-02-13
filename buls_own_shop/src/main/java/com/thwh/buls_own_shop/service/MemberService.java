@@ -43,11 +43,12 @@ public class MemberService {
      * 로그인
      */
     public String signIn(LoginForm loginForm) {
-        Member member = memberRepository.findOne(loginForm.getId());
-        if(member == null){
+        List<Member> ids = memberRepository.findById(loginForm.getId());
+        if(ids == null){
             throw new IllegalStateException("존재하지 않는 ID입니다.");
         }
         else{
+            Member member = ids.get(0);
             if(member.getPw().equals(loginForm.getPw()))
                 return member.getUser_id();
             else
@@ -66,7 +67,7 @@ public class MemberService {
 
     //회원 한 명 조회
     // @Transactional(readOnly = true)
-    public Member findOne(String id) {
+    public Member findOne(Long id) {
         return memberRepository.findOne(id);
     }
 

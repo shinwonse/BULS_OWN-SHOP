@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+<body>
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+        <h4><a class="main-menu" href="/admin">←돌아가기</a></h4>
+<!--        <div>-->
+<!--            <form th:object="${productSearch}" class="form-inline">-->
+<!--                <div class="form-group mb-2">-->
+<!--                    <input type="text" th:field="*{productType}" class="formcontrol"-->
+<!--                           placeholder="제품 카테고리"/>-->
+<!--                </div>-->
+<!--                <div class="form-group mx-sm-1 mb-2">-->
+<!--                    <select th:field="*{orderStatus}" class="form-control">-->
+<!--                        <option value="">주문상태</option>-->
+<!--                        <option th:each=-->
+<!--                                        "status : ${T(com.example.demo.domain.OrderStatus).values()}"-->
+<!--                                th:value="${status}"-->
+<!--                                th:text="${status}">option-->
+<!--                        </option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <button type="submit" class="btn btn-primary mb-2">검색</button>-->
+<!--            </form>-->
+<!--        </div>-->
+      <table class="table table-striped">
+          <thead>
+          <tr>
+              <th>#</th>
+              <th>카테고리</th>
+              <th>상품명</th>
+              <th>브랜드</th>
+              <th>가격</th>
+              <th>재고수량</th>
+              <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="product : ${products}">
+              <td th:text="${product.id}"></td>
+              <td th:text="${product.category}"></td>
+              <td th:text="${product.name}"></td>
+              <td th:text="${product.brand}"></td>
+              <td th:text="${product.price}"></td>
+              <td th:text="${product.stockQuantity}"></td>
+<!--              <td><img th:src="${product.imageLink}"/></td>-->
+          </tr>
+          </tbody>
+      </table>
+    </div>
+<div th:replace="fragments/footer :: footer"></div>
+  </body>
+</html>

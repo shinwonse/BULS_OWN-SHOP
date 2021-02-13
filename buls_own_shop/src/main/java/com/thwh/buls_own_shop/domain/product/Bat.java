@@ -11,6 +11,6 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 public class Bat extends Product{
-    private int size_bat;
-    private String material;
+    private String size_bat;    // 33-28
+    private String material;    // 나무, 풀 알로이
 }
