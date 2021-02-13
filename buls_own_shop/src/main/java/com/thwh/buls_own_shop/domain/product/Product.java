@@ -25,6 +25,7 @@ public abstract class Product {
     private String imageLink;
     private int price;
     private int stockQuantity;
+    private String category;
 
 //    @ManyToMany(mappedBy = "products")
 //    private List<Category> categories = new ArrayList<>();

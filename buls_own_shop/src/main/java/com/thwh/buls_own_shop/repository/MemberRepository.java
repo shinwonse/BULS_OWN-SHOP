@@ -17,8 +17,8 @@ public class MemberRepository {
         em.persist(member);
     }
 
-    public Member findOne(String user_id) {
-        return em.find(Member.class, user_id); // find 라는 내장함수로 Member class 내에서 original_id에 해당하는 Member 객체를 리턴해줌
+    public Member findOne(Long original_id) {
+        return em.find(Member.class, original_id); // find 라는 내장함수로 Member class 내에서 original_id에 해당하는 Member 객체를 리턴해줌
     }
 
     // 이름을 통해 멤버 객체 리스트를 리턴해줌 (JPA 문법을 정확히 익히지 못해 이해하지 못한 구문임)

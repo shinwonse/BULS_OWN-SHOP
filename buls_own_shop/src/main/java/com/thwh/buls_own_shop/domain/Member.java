@@ -11,12 +11,11 @@ import java.util.List;
 @Entity
 @Getter @Setter
 public class Member {
-
+    @Id
     @GeneratedValue
     @Column(name = "original_id")
     private Long original_id;
 
-    @Id
     private String user_id;
 
     private String pw;

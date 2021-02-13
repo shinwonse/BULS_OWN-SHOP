@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+  <body>
+  <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+    <div class="container">
+      <form role="form" action="/admin/newProduct" th:object="${productForm}" method="post">
+          <div class="form-group">
+              <br>
+              <label th:for="productType">카테고리</label>
+              <select name="productType">
+                  <option th:value="Glove">글러브</option>
+                  <option th:value="Bat">배트</option>
+                  <option th:value="Spike">스파이크</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <label th:for="name">상품명</label>
+              <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요"
+                     th:class="${#fields.hasErrors('name')}? 'form-control fieldError' : 'form-control'">
+              <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect name</p>
+          </div>
+          <div class="form-group">
+              <label th:for="price">가격</label>
+              <input type="number" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요"
+                     th:class="${#fields.hasErrors('price')}? 'form-control fieldError' : 'form-control'">
+              <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Incorrect price</p>
+          </div>
+          <div class="form-group">
+              <label th:for="stockQuantity">수량</label>
+              <input type="number" th:field="*{stockQuantity}" class="formcontrol" placeholder="수량을 입력하세요">
+          </div>
+          <div class="form-group">
+              <label th:for="brandName">브랜드</label>
+              <input type="text" th:field="*{brandName}" class="form-control" placeholder="브랜드를 입력하세요"
+                     th:class="${#fields.hasErrors('brandName')}? 'form-control fieldError' : 'form-control'">
+              <p th:if="${#fields.hasErrors('brandName')}" th:errors="*{brandName}">Incorrect brandName</p>
+          </div>
+          <div><strong>______________글러브의 경우 필수______________</strong></div>
+          <div class="form-group">
+              <label th:for="gloveSize">글러브 사이즈</label>
+              <input type="text" th:field="*{gloveSize}" class="form-control" placeholder="글러브 사이즈를 입력하세요">
+          </div>
+          <div class="form-group">
+              <label th:for="position">포지션</label>
+              <input type="text" th:field="*{position}" class="form-control" placeholder="포지션을 입력하세요">
+          </div>
+          <div><strong>______________배트의 경우 필수______________</strong></div>
+          <div class="form-group">
+              <label th:for="batSize">배트 사이즈</label>
+              <input type="text" th:field="*{batSize}" class="form-control" placeholder="배트 사이즈를 입력하세요">
+          </div>
+          <div class="form-group">
+              <label th:for="material">소재</label>
+              <input type="text" th:field="*{material}" class="form-control" placeholder="소재을 입력하세요">
+          </div>
+          <div><strong>______________스파이크의 경우 필수______________</strong></div>
+          <div class="form-group">
+              <label th:for="spikeSize">스파이크 사이즈</label>
+              <input type="text" th:field="*{spikeSize}" class="form-control" placeholder="스파이크 사이즈를 입력하세요">
+          </div>
+          <div class="form-group">
+              <label th:for="sole">밑창 형태</label>
+              <input type="text" th:field="*{sole}" class="form-control" placeholder="밑창 형태를 입력하세요">
+          </div>
+<!--        <div class="form-group">-->
+<!--            <label th:for="isbn">포지션</label>-->
+<!--            <input type="text" th:field="*{isbn}" class="form-control" placeholder="포지션을 입력하세요">-->
+<!--        </div>-->
+          <button type="submit" class="btn btn-primary">등록</button>
+          <br>
+      </form>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+  </body>
+</html>

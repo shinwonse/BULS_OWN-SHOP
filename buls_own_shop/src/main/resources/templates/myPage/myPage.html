@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8">
     <title>마이 페이지</title>
@@ -11,19 +11,8 @@
     <script src="jquery.js"></script>
   </head>
   <body>
-    <header>
-      <div id="title">
-          <a class="main-menu" href="/" id="menu1">Home</a>
-        <h1>마이 페이지 - 구매 목록</h1>
-      </div>
-
-      <nav>
-        <ul>
-          <li><h4><a class="main-menu" href="/" id="menu1">←돌아가기</a></h4></li>
-        </ul>
-      </nav>
-    </header>
-    <div id="ctime">
+  <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+    <div id="content">
       <table class="table table-striped">
             <thead>
             <tr>
@@ -38,7 +27,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${orders}">
+            <tr th:each="item : ${member}">
                 <td th:text="${item.id}"></td>
                 <td th:text="${item.member.name}"></td>
                 <td th:text="${item.orderItems[0].item.name}"></td>
