@@ -53,7 +53,8 @@
             <article class="entry" id="wonse1">
               <div class="entry-content">
                 <div class="read-more">
-                  <a href="/order">Buy</a>
+                  <a th:href="@{/order/{productId} (productId=${glove.getId()})}"
+                     class="btn btn-primary" role="button">Buy</a>
                 </div>
               </div>
             </article>
