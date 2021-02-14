@@ -20,19 +20,20 @@
     </section><!-- End Breadcrumbs -->
 </main><!-- End #main -->
 <div class="container">
-    <form role="form" action="/order" method="post">
-        <div class="form-group">
+    <form role="form" th:action="@{/order/{id}(id=${product.id})}" method="post">
+        <div class="form-group" name="itemId">
             <h3>주문회원</h3>
-            <p th:text="${members}"></p>
+            <p th:text="${member.user_id}"></p>
         </div>
         <div class="form-group">
-            <p>상품명</p>
+            <h3>상품명</h3>
+            <p th:text="${product.name}"></p>
         </div>
         <div class="form-group">
             <label for="count">주문수량</label>
             <input type="number" name="count" class="form-control" id="count" placeholder="주문 수량을 입력하세요">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">결제</button>
     </form>
 </div>
 </body>

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -21,22 +23,23 @@ public class OrderController {
     private final MemberService memberService;
     private final ProductService productService;
 
-    @GetMapping("/order")
-    public String createForm(Model model) {
-        List<Member> members = memberService.findMembers();
-        List<Product> items = productService.findProducts();
-
-        model.addAttribute("members", members);
-        model.addAttribute("items", items);
+    @GetMapping("/order/{productId}")
+    public String createForm(@PathVariable("productId") Long productId, @Valid HttpSession session, Model model) {
+        Product product = productService.findOne(productId);
+        Member member = (Member) session.getAttribute("member");
+        model.addAttribute("member", member);
+        model.addAttribute("product", product);
         return "order/orderForm";
     }
 
-    @PostMapping("/order")
-    public String order(@RequestParam("memberId") Long memberId,
-                        @RequestParam("itemId") Long itemId,
-                        @RequestParam("count") int count) {
-        orderService.order(memberId, itemId, count);
-        return "/myPage";
+    @PostMapping("/order/{productId}")
+    public String order(@Valid HttpSession session,
+                        @RequestParam("count") int count,
+                        @PathVariable("productId") Long productId) {
+        Member member = (Member) session.getAttribute("member");
+        Product product = productService.findOne(productId);
+        orderService.order(member.getOriginal_id(), product.getId(), count);
+        return "/myPage/myPage";
     }
 
     @GetMapping("/orders")
