@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+<body>
+
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+<main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Order</h2>
+                <ol>
+                    <li><a href="/main.html">Home</a></li>
+                    <li>Order</li>
+                </ol>
+            </div>
+        </div>
+    </section><!-- End Breadcrumbs -->
+</main><!-- End #main -->
+<div class="container">
+    <form role="form" action="/order" method="post">
+        <div class="form-group">
+            <h3>주문회원</h3>
+            <p th:text="${members}"></p>
+        </div>
+        <div class="form-group">
+            <p>상품명</p>
+        </div>
+        <div class="form-group">
+            <label for="count">주문수량</label>
+            <input type="number" name="count" class="form-control" id="count" placeholder="주문 수량을 입력하세요">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+<div th:replace="fragments/footer :: footer"></div>

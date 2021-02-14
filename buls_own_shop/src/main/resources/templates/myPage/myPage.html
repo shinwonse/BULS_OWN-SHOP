@@ -1,53 +1,57 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8">
-    <title>마이 페이지</title>
-    <link rel="stylesheet" href="jquery.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="jquery.js"></script>
-  </head>
-  <body>
-  <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
-    <div id="content">
-      <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>회원명</th>
-                <th>대표상품 이름</th>
-                <th>대표상품 주문가격</th>
-                <th>대표상품 주문수량</th>
-                <th>상태</th>
-                <th>일시</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="item : ${member}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.member.name}"></td>
-                <td th:text="${item.orderItems[0].item.name}"></td>
-                <td th:text="${item.orderItems[0].orderPrice}"></td>
-                <td th:text="${item.orderItems[0].count}"></td>
-                <td th:text="${item.status}"></td>
-                <td th:text="${item.orderDate}"></td>
-                <td>
-                    <a th:if="${item.status.name() == 'ORDER'}" href="#" th:href="'javascript:cancel('+${item.id}+')'" class="btn btn-danger">CANCEL</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+<body>
+
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>My Page</h2>
+                <ol>
+                    <li><a href="/main.html">Home</a></li>
+                    <li>My Page</li>
+                </ol>
+            </div>
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <div class="container">
+        <div id="content">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>회원명</th>
+                    <th>대표상품 이름</th>
+                    <th>대표상품 주문가격</th>
+                    <th>대표상품 주문수량</th>
+                    <th>상태</th>
+                    <th>일시</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${member}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.member.name}"></td>
+                    <td th:text="${item.orderItems[0].item.name}"></td>
+                    <td th:text="${item.orderItems[0].orderPrice}"></td>
+                    <td th:text="${item.orderItems[0].count}"></td>
+                    <td th:text="${item.status}"></td>
+                    <td th:text="${item.orderDate}"></td>
+                    <td>
+                        <a th:if="${item.status.name() == 'ORDER'}" href="#" th:href="'javascript:cancel('+${item.id}+')'" class="btn btn-danger">CANCEL</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-
-    <footer>
-      <p>한상우 없는 한상우팀</p>
-      <p>Created by EuiJae-Jeong</p>
-    </footer>
-
-  </body>
+    <div th:replace="fragments/footer :: footer"></div>
+</main>
+</body>
 </html>
