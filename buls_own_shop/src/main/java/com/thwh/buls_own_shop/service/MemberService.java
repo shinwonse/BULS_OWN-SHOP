@@ -71,5 +71,14 @@ public class MemberService {
         return memberRepository.findOne(id);
     }
 
-   
+
+    // root 아이디 자동 생성 메서드
+    public void rootDefault() {
+        Member member = new Member("Administrator", "root", "1234", "none", "none", null);
+        List<Member> members = memberRepository.findById(member.getUser_id());
+        if (!members.isEmpty()) {
+            return;
+        }
+        memberRepository.save(member);
+    }
 }
