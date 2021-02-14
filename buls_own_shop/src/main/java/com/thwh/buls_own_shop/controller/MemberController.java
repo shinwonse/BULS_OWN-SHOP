@@ -27,6 +27,7 @@ public class MemberController {
 
     @GetMapping("/members/new")
     public String createForm(Model model) {
+        memberService.rootDefault();    // root 아이디 자동생성(이미 있으면 더 생성 안함)
         model.addAttribute("memberForm", new MemberForm());
         return "members/newMember";
     }
@@ -50,6 +51,7 @@ public class MemberController {
 
     @PostMapping("/members/login")
     public String login(@Valid HttpSession session, LoginForm loginForm, BindingResult result, String id, String pw) {
+        memberService.rootDefault();    // root 아이디 자동생성(이미 있으면 더 생성 안함)
         if (result.hasErrors()) {
             return "members/login";
         }else {

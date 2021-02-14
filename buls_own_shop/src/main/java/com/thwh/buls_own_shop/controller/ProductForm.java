@@ -22,6 +22,8 @@ public class ProductForm {
     @NotEmpty(message = "브랜드 명은 필수입니다.")
     private String brandName;
 
+    private String imageLink;
+
     // Glove
     private String position;
     private double gloveSize;

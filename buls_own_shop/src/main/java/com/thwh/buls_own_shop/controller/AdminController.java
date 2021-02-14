@@ -21,6 +21,8 @@ public class AdminController {
     private final ProductService productService;
     private final MemberService memberService;
 
+    private final String UPLOAD_DIR = "/static/img/";
+
     @GetMapping("/admin")
     public String adminMain() {
         return "administrator/admin";
