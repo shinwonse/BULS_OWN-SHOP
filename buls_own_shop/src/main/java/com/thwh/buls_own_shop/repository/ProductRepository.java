@@ -1,5 +1,6 @@
 package com.thwh.buls_own_shop.repository;
 
+import com.thwh.buls_own_shop.domain.Member;
 import com.thwh.buls_own_shop.domain.product.Bat;
 import com.thwh.buls_own_shop.domain.product.Glove;
 import com.thwh.buls_own_shop.domain.product.Product;
@@ -69,5 +70,11 @@ public class ProductRepository {
                 spikes.add((Spike) next);
         }
         return spikes;
+    }
+
+    public List<Product> findByName(String name) {
+        return em.createQuery("select p from Product p where p.name = :name", Product.class)
+                .setParameter("name", name)
+                .getResultList();
     }
 }

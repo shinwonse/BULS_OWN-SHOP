@@ -110,5 +110,54 @@ public class ProductService {
     }
 
 
+    public void makeDefaultGlove() {
+        Glove glove = new Glove();
+        glove.setName("제트 BPROG760 (1900) 프로 스테이터스 세컨드 11.5인치 내야 글러브 (블랙)");
+        glove.setBrand("Zett");
+        glove.setImageLink("/img/glove_images/glove_ex.jpg");
+        glove.setPrice(1000);
+        glove.setStockQuantity(10);
+        glove.setPosition("내야11");
+        glove.setSize_glove(11.5);
+
+        List<Product> productList = productRepository.findByName(glove.getName());
+        if(!productList.isEmpty()){
+            return;
+        }
+        productRepository.save(glove);
+    }
+
+    public void makeDefaultBat() {
+        Bat bat = new Bat();
+        bat.setName("드마리니 투피스 배트");
+        bat.setBrand("드마리니");
+        bat.setImageLink("/img/bat_images/bat_ex.jpg");
+        bat.setPrice(10000);
+        bat.setStockQuantity(10);
+        bat.setMaterial("카본");
+        bat.setSize_bat("33-28");
+        List<Product> productList = productRepository.findByName(bat.getName());
+        if(!productList.isEmpty()){
+            return;
+        }
+        productRepository.save(bat);
+    }
+
+    public void makeDefaultSpike() {
+        Spike spike = new Spike();
+        spike.setName("뉴발란스 징 스파이크");
+        spike.setBrand("뉴발란스");
+        spike.setImageLink("/img/spike_images/spike_ex.jpg");
+        spike.setPrice(100);
+        spike.setStockQuantity(11);
+        spike.setSole("징");
+        spike.setSize_spike(270);
+
+        List<Product> productList = productRepository.findByName(spike.getName());
+        if(!productList.isEmpty()){
+            return;
+        }
+        productRepository.save(spike);
+    }
 
 }
