@@ -68,13 +68,16 @@ public class MemberController {
         return "redirect:/";
     }
 
-//     @GetMapping("/members/{id}/myPage")
-//     public String myPage(@PathVariable("id") Long id, Model model) {
-//         Member member = memberService.findOne(id);
-//         model.addAttribute("member", member);
-//         return "/myPage/myPage";
-//     }
-    @RequestMapping("/myPage")
+    @GetMapping("/members/{id}/myPage")
+    public String myPage(@PathVariable("id") Long id, Model model) {
+        Member member = memberService.findOne(id);
+        model.addAttribute("member", member);
+        return "/myPage/myPage";
+    }
+    @GetMapping("/members/myPage")
+    public String myPage_main(){ return "myPage/myPage";}
+
+    @RequestMapping("/members/myPage")
     public String myPage(){
         return "myPage/myPage";
     }

@@ -37,6 +37,6 @@ public class Member {
         this.address = address;
     }
 
-    //    @OneToMany(mappedBy = "member")
-//    private List<Order> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 }
