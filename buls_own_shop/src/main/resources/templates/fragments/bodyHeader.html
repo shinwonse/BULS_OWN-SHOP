@@ -15,6 +15,7 @@
                 <li><a href="/product/glove">Glove</a></li>
                 <li><a href="/product/bat">Bat</a></li>
                 <li><a href="/product/spike">Spike</a></li>
+<<<<<<< HEAD
                 <li><a href="blog.html">Blog</a></li>
                 <li></li>
                 <li></li>
@@ -23,10 +24,20 @@
 
         </nav>
         <div th:if = "${session.member == null}"> <!-- 비로그인 시 출력할 화면 -->
+=======
+<!--                <li><a href="blog.html">Blog</a></li>-->
+<!--                <li><a href="contact.html">Contact</a></li>-->
+            </ul>
+
+        </nav><!-- .nav-menu -->
+
+        <div th:if = "${session.member == null}">
+>>>>>>> 9ca93a28474f595881e2d2f9c39367c4f9d7c622
             <a href="/members/new" class="get-started-btn ml-auto">Register</a>
             <a href="/members/login" class="get-started-btn ml-auto">Sign in</a>
 
         </div>
+<<<<<<< HEAD
         <div th:if = "${session.member != null}"> <!-- 로그인 시 출력할 화면 -->
             <div th:if = "${session.member.user_id == 'root'}"> <!-- root로 로그인 시 출력할 화면 -->
                 <a href="/members/logout" class="get-started-btn ml-auto">Logout</a>
@@ -36,6 +47,11 @@
                 <a href="/members/logout" class="get-started-btn ml-auto">Logout</a>
                 <a href="/members/myPage" class="get-started-btn ml-auto">My Page</a>
             </div>
+=======
+        <div th:if = "${session.member != null}">
+            <a href="/members/logout" class="get-started-btn ml-auto">Logout</a>
+            <a href="/myPage" class="get-started-btn ml-auto">My Page</a>
+>>>>>>> 9ca93a28474f595881e2d2f9c39367c4f9d7c622
         </div>
     </div>
 </header><!-- End Header -->
