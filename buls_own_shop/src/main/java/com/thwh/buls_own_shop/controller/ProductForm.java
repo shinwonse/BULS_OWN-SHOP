@@ -16,9 +16,6 @@ public class ProductForm {
 
     private String productType; // Glove, Bat, Spike
 
-//    @NotEmpty(message = "이미지 링크는 필수입니다.")
-//    private String imageLink;
-
     @NotEmpty(message = "브랜드 명은 필수입니다.")
     private String brandName;
 

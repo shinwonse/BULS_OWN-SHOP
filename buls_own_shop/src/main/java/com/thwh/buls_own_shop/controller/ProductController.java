@@ -23,7 +23,7 @@ public class ProductController {
     public String glove_list(Model model) {
         productService.makeDefaultGlove();
         List<Glove> gloves = productService.findGloves();
-        model.addAttribute("items", gloves);
+        model.addAttribute("gloves", gloves);
         return "/product/glove/glove_list";
     }
 

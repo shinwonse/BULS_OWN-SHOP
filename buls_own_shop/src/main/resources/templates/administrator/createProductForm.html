@@ -7,7 +7,7 @@
 
 <div class="container">
 
-    <form role="form" action="/admin/newProduct" th:object="${productForm}" method="post">
+    <form role="form" action="/admin/newProduct" th:object="${productForm}" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <br>
             <label th:for="productType">카테고리</label>
@@ -68,6 +68,9 @@
                 <label th:for="sole">밑창 형태</label>
                 <input type="text" th:field="*{sole}" class="form-control" placeholder="밑창 형태를 입력하세요">
             </div>
+        </div>
+        <div class="form-group">
+            <input type="file" name="file" />
         </div>
         <br><br>
         <button type="submit" class="btn btn-primary">등록</button>

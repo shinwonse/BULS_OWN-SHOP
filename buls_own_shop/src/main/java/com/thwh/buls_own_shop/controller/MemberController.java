@@ -50,7 +50,7 @@ public class MemberController {
     }
 
     @PostMapping("/members/login")
-    public String login(@Valid HttpSession session, LoginForm loginForm, BindingResult result, String id, String pw) {
+    public String login(HttpSession session, @Valid LoginForm loginForm, BindingResult result, String id, String pw) {
         memberService.rootDefault();    // root 아이디 자동생성(이미 있으면 더 생성 안함)
         if (result.hasErrors()) {
             return "members/login";

@@ -7,11 +7,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+      # ddl-auto: validate
     properties:
       hibernate:
-        #        show_sql: true # sysout으로 찍힘
+        # show_sql: true # sysout으로 찍힘
         format_sql: true
-
+#  thymeleaf:
+#    cache: false
+#  +추가: 처음이걸 하는 경우 internet에서 이미지 캐시를 한 번 없애줘야함(크롬에서)
 logging.level:
   org.hibernate.SQL: debug # log에 찍힘
   org.hibernate.type: trace

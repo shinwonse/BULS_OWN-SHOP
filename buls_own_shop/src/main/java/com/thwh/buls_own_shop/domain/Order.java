@@ -26,7 +26,7 @@ public class Order {
     private Member member;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // OrderItems에 order에 의해 mapping된 것임
-    private List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderProduct> orderProducts = new ArrayList<>();
 
     private LocalDateTime orderDate; // 주문 시간
 
@@ -39,17 +39,17 @@ public class Order {
         member.getOrders().add(this);
     }
 
-    public void addOrderItem(OrderItem orderItem){
-        orderItems.add(orderItem);
-        orderItem.setOrder(this);
+    public void addOrderItem(OrderProduct orderProduct){
+        orderProducts.add(orderProduct);
+        orderProduct.setOrder(this);
     }
 
     //==생성 메서드==//
-    public static Order createOrder(Member member, OrderItem... orderItems){
+    public static Order createOrder(Member member, OrderProduct... orderProducts){
         Order order = new Order();
         order.setMember(member);
-        for (OrderItem orderItem: orderItems) {
-            order.addOrderItem(orderItem);
+        for (OrderProduct orderProduct : orderProducts) {
+            order.addOrderItem(orderProduct);
         }
         order.setStatus(OrderStatus.ORDER);
         order.setOrderDate(LocalDateTime.now());
@@ -62,8 +62,8 @@ public class Order {
      */
     public void cancel() {
         this.setStatus(OrderStatus.CANCEL);
-        for (OrderItem orderItem : orderItems) {
-            orderItem.cancel();
+        for (OrderProduct orderProduct : orderProducts) {
+            orderProduct.cancel();
         }
     }
 
@@ -74,8 +74,8 @@ public class Order {
      */
     public int getTotalPrice() {
         int totalPrice = 0;
-        for (OrderItem orderItem: orderItems) {
-            totalPrice += orderItem.getTotalPrice();
+        for (OrderProduct orderProduct : orderProducts) {
+            totalPrice += orderProduct.getTotalPrice();
         }
         return totalPrice;
     }
