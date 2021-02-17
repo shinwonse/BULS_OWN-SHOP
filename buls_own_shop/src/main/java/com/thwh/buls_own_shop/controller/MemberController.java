@@ -68,14 +68,13 @@ public class MemberController {
             }
                 return "redirect:/";
 
-            }catch(IllegalStateException e){
-                session.setAttribute("errorMessage", "errorMesssage");
-                session.removeAttribute("member");
-                System.out.println("login failure(PW)");
-                return "members/login";
-            }
-
+        }catch(IllegalStateException e){
+            session.setAttribute("errorMessage", "errorMesssage");
+            session.removeAttribute("member");
+            System.out.println("login failure(PW)");
+            return "members/login";
         }
+
     }
 
     @GetMapping("/members/logout")
