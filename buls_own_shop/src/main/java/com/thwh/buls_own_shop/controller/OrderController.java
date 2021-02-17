@@ -8,17 +8,11 @@ import com.thwh.buls_own_shop.service.MemberService;
 import com.thwh.buls_own_shop.service.OrderService;
 import com.thwh.buls_own_shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
