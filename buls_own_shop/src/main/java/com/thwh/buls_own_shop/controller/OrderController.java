@@ -8,12 +8,17 @@ import com.thwh.buls_own_shop.service.MemberService;
 import com.thwh.buls_own_shop.service.OrderService;
 import com.thwh.buls_own_shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -24,16 +29,19 @@ public class OrderController {
     private final ProductService productService;
 
     @GetMapping("/order/{productId}")
-    public String createForm(@PathVariable("productId") Long productId, @Valid HttpSession session, Model model) {
+    public String createForm(@PathVariable("productId") Long productId, HttpSession session, Model model) {
+        if(session.getAttribute("member") == null) // 로그인 안 했을 시 로그인 페이지로 넘어가게 함
+            return "redirect:/members/login";
+
         Product product = productService.findOne(productId);
         Member member = (Member) session.getAttribute("member");
         model.addAttribute("member", member);
         model.addAttribute("product", product);
-        return "order/orderForm";
+        return "/order/orderForm";
     }
 
     @PostMapping("/order/{productId}")
-    public String order(@Valid HttpSession session,
+    public String order(HttpSession session,
                         @RequestParam("count") int count,
                         @PathVariable("productId") Long productId) {
         Member member = (Member) session.getAttribute("member");

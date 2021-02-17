@@ -8,6 +8,7 @@ import com.thwh.buls_own_shop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -80,4 +81,6 @@ public class MemberService {
         }
         memberRepository.save(member);
     }
+
+
 }

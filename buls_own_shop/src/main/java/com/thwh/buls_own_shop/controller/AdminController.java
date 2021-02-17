@@ -10,8 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -35,12 +40,29 @@ public class AdminController {
     }
 
     @PostMapping("/admin/newProduct")
-    public String create(@Valid ProductForm productForm, BindingResult result) {
-
+    public String create(@Valid ProductForm productForm,
+                         BindingResult result,
+                         MultipartHttpServletRequest multipartHttpServletRequest) {
         if (result.hasErrors()) {
             return "administrator/createProductForm";
         }
+        // String src = multipartHttpServletRequest.getParameter("src");
+        MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
+        String originFileName = multipartFile.getOriginalFilename(); // 원본 파일 명
+        long fileSize = multipartFile.getSize(); // 파일 사이즈
 
+        // 반드시 자신의 로컬 저장소로 바꿀 것
+        String PATH = "C:/Users/Jeong-EuiJae/Documents/GitHub/BULS_OWN-SHOP/buls_own_shop/src/main/resources/static/img/glove_images/";
+
+        Long currentTime = System.currentTimeMillis();
+        String filePath = PATH + currentTime + originFileName;
+        try {
+            multipartFile.transferTo(new File(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        productForm.setImageLink("/img/glove_images/" + currentTime.toString() + originFileName);
         productService.saveProduct(productForm);
         return "redirect:/admin";
     }

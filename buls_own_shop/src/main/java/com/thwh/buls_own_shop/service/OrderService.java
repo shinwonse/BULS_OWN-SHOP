@@ -3,7 +3,7 @@ package com.thwh.buls_own_shop.service;
 
 import com.thwh.buls_own_shop.domain.Member;
 import com.thwh.buls_own_shop.domain.Order;
-import com.thwh.buls_own_shop.domain.OrderItem;
+import com.thwh.buls_own_shop.domain.OrderProduct;
 import com.thwh.buls_own_shop.domain.product.Product;
 import com.thwh.buls_own_shop.repository.MemberRepository;
 import com.thwh.buls_own_shop.repository.OrderRepository;
@@ -35,10 +35,10 @@ public class OrderService {
         Product product = productRepository.findOne(itemId);
 
         // 주문 상품 생성
-        OrderItem orderItem = OrderItem.createOrderItem(product, product.getPrice(), count);
+        OrderProduct orderProduct = OrderProduct.createOrderProduct(product, product.getPrice(), count);
 
         // 주문 생성
-        Order order = Order.createOrder(member, orderItem);
+        Order order = Order.createOrder(member, orderProduct);
 
         // 주문 저장
         orderRepository.save(order);

@@ -46,6 +46,7 @@ public class ProductService {
         spike.setStockQuantity(productForm.getStockQuantity());
         spike.setBrand(productForm.getBrandName());
         spike.setCategory(productForm.getProductType());
+        spike.setImageLink(productForm.getImageLink());
 
         spike.setSize_spike(productForm.getSpikeSize());
         spike.setSole(productForm.getSole());
@@ -59,6 +60,7 @@ public class ProductService {
         bat.setStockQuantity(productForm.getStockQuantity());
         bat.setBrand(productForm.getBrandName());
         bat.setCategory(productForm.getProductType());
+        bat.setImageLink(productForm.getImageLink());
 
         bat.setSize_bat(productForm.getBatSize());
         bat.setMaterial(productForm.getMaterial());
@@ -72,6 +74,7 @@ public class ProductService {
         glove.setStockQuantity(productForm.getStockQuantity());
         glove.setBrand(productForm.getBrandName());
         glove.setCategory(productForm.getProductType());
+        glove.setImageLink(productForm.getImageLink());
 
         glove.setSize_glove(productForm.getGloveSize());
         glove.setPosition(productForm.getPosition());
