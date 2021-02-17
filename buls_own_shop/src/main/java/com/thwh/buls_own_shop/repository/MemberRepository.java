@@ -1,6 +1,7 @@
 package com.thwh.buls_own_shop.repository;
 
 import com.thwh.buls_own_shop.domain.Member;
+import com.thwh.buls_own_shop.domain.OrderProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

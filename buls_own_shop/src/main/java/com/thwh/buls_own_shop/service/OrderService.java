@@ -4,6 +4,7 @@ package com.thwh.buls_own_shop.service;
 import com.thwh.buls_own_shop.domain.Member;
 import com.thwh.buls_own_shop.domain.Order;
 import com.thwh.buls_own_shop.domain.OrderProduct;
+import com.thwh.buls_own_shop.domain.product.Glove;
 import com.thwh.buls_own_shop.domain.product.Product;
 import com.thwh.buls_own_shop.repository.MemberRepository;
 import com.thwh.buls_own_shop.repository.OrderRepository;
@@ -62,4 +63,5 @@ public class OrderService {
     public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepository.findAllByString(orderSearch);
     }
+
 }
