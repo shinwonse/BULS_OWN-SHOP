@@ -62,15 +62,16 @@ public class MemberController {
             return "redirect:/";
         }
     }
+
     @GetMapping("/members/logout")
     public String logout(HttpSession session){
         session.removeAttribute("member");
         return "redirect:/";
     }
 
-    @GetMapping("/members/{id}/myPage")
-    public String myPage(@PathVariable("id") Long id, Model model) {
-        Member member = memberService.findOne(id);
+    @GetMapping("/members/{memberId}/myPage")
+    public String myPage(@PathVariable("memberId") String memberId, Model model) {
+        Member member = memberService.findByStringId(memberId);
         model.addAttribute("member", member);
         return "/myPage/myPage";
     }

@@ -33,7 +33,8 @@
             <label for="count">주문수량</label>
             <input type="number" name="count" class="form-control" id="count" placeholder="주문 수량을 입력하세요">
         </div>
-        <button type="submit" class="btn btn-primary">결제</button>
+        <a th:href="@{/members/{memberId}/myPage (memberId=${member.getUser_id()})}"
+           class="btn btn-primary" role="button">결제</a>
     </form>
 </div>
 </body>
