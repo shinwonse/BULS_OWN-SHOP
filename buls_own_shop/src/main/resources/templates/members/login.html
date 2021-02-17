@@ -12,13 +12,15 @@
                 <label th:for="id">ID</label>
                 <input type="text" th:field="*{id}" class="form-control" placeholder="ID를 입력하세요"
                        th:class="${#fields.hasErrors('id')}? 'form-control fieldError' : 'form-control'">
-                <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Incorrect ID</p>
+
             </div>
             <div class="form-group">
                 <label th:for="pw">PW</label>
                 <input type="password" th:field="*{pw}" class="form-control" placeholder="비밀번호를 입력하세요"
                        th:class="${#fields.hasErrors('pw')}? 'form-control fieldError' : 'form-control'">
-                <p th:if="${#fields.hasErrors('pw')}" th:errors="*{pw}">Incorrect PW</p>
+                <div th:if = "${session.errorMessage != null}">
+                    <p>올바르지 않은 ID 또는 비밀번호입니다</p>
+                </div>
             </div>
             <div class="btn-area">
                 <button class="btn btn-primary" type="submit">LOGIN</button>

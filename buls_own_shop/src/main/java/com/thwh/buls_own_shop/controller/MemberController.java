@@ -52,19 +52,37 @@ public class MemberController {
     @PostMapping("/members/login")
     public String login(HttpSession session, @Valid LoginForm loginForm, BindingResult result, String id, String pw) {
         memberService.rootDefault();    // root 아이디 자동생성(이미 있으면 더 생성 안함)
-        if (result.hasErrors()) {
-            return "members/login";
-        }else {
+        try {
             List<Member> ids = memberRepository.findById(id);
-            Member member = ids.get(0);
-            session.setAttribute("member", member);
-            memberService.signIn(loginForm);
-            return "redirect:/";
+            if (ids.size() != 0) {
+                Member member = ids.get(0);
+
+                session.setAttribute("member", member);
+                memberService.signIn(loginForm);
+                System.out.println("login success");
+            }else{
+                session.setAttribute("errorMessage", "errorMesssage");
+                session.removeAttribute("member");
+                System.out.println("login failure(ID)");
+                return "members/login";
+            }
+                return "redirect:/";
+
+            }catch(IllegalStateException e){
+                session.setAttribute("errorMessage", "errorMesssage");
+                session.removeAttribute("member");
+                System.out.println("login failure(PW)");
+                return "members/login";
+            }
+
         }
-    }
+
+
     @GetMapping("/members/logout")
     public String logout(HttpSession session){
         session.removeAttribute("member");
+        session.removeAttribute("errorMessage");
+        System.out.println("logout success");
         return "redirect:/";
     }
 
