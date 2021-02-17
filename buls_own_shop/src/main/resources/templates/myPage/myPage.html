@@ -34,16 +34,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="order : ${member.orders}">
-                    <td th:text="${order.id}"></td>
-                    <td th:text="${order.name}"></td>
+                <tr th:each="order : ${member.getOrders()}">
+                    <td th:text="${order.getId()}"></td>
+                    <td th:text="${order.orderProducts[0].product.getName()}"></td>
+                    <td th:text="${order.orderProducts[0].count}"></td>
+                    <td th:text="${order.getTotalPrice()}"></td>
+                    <td th:text="${order.getOrderDate()}"></td>
                     <td th:text="${order.status}"></td>
-                    <td th:text="${item.orderProducts[0].orderPrice}"></td>
-                    <td th:text="${item.orderProducts[0].count}"></td>
-                    <td th:text="${item.status}"></td>
-                    <td>
-                        <a th:if="${item.status.name() == 'ORDER'}" href="#" th:href="'javascript:cancel('+${item.id}+')'" class="btn btn-danger">CANCEL</a>
-                    </td>
+<!--                    <td>-->
+<!--                        <a th:if="${item.status.name() == 'ORDER'}" href="#" th:href="'javascript:cancel('+${item.id}+')'" class="btn btn-danger">CANCEL</a>-->
+<!--                    </td>-->
                 </tr>
                 </tbody>
             </table>

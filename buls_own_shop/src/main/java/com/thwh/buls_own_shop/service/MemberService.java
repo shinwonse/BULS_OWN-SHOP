@@ -72,6 +72,11 @@ public class MemberService {
         return memberRepository.findOne(id);
     }
 
+    public Member findByStringId(String strId) {
+        List<Member> id_list = memberRepository.findById(strId);
+        return id_list.get(0);
+    }
+
     // root 아이디 자동 생성 메서드
     public void rootDefault() {
         Member member = new Member("Administrator", "root", "1234", "none", "none", null);
