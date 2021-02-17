@@ -10,4 +10,5 @@ public class BulsOwnShopApplication {
 		SpringApplication.run(BulsOwnShopApplication.class, args);
 	}
 
+
 }
