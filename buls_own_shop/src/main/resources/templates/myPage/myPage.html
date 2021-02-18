@@ -25,25 +25,27 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>상품 명</th>
+                    <th>상품명</th>
                     <th>주문수량</th>
-                    <th>총 가격</th>
+                    <th>가격</th>
                     <th>일시</th>
                     <th>상태</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="order : ${member.getOrders()}">
-                    <td th:text="${order.getId()}"></td>
+                <tr th:each="order, i : ${member.getOrders()}">
+                    <td th:text="${i.count}"></td>
                     <td th:text="${order.orderProducts[0].product.getName()}"></td>
                     <td th:text="${order.orderProducts[0].count}"></td>
                     <td th:text="${order.getTotalPrice()}"></td>
                     <td th:text="${order.getOrderDate()}"></td>
                     <td th:text="${order.status}"></td>
-<!--                    <td>-->
-<!--                        <a th:if="${item.status.name() == 'ORDER'}" href="#" th:href="'javascript:cancel('+${item.id}+')'" class="btn btn-danger">CANCEL</a>-->
-<!--                    </td>-->
+                    <td>
+                        <a th:if="${order.status.name() == 'ORDER'}"
+                           th:href="@{/order/{orderId}/cancel (orderId=${order.getId()})}"
+                           class="btn btn-danger">CANCEL</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
