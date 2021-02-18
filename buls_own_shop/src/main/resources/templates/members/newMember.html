@@ -10,15 +10,20 @@
         <form role="form" action="/members/new" th:object="${memberForm}" method="post">
             <div class="form-group">
                 <label th:for="name">이름</label>
-                <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요"
+                <input type="text"  th:field="*{name}" class="form-control" placeholder="이름을 입력하세요"
                        th:class="${#fields.hasErrors('name')}? 'form-control fieldError' : 'form-control'">
                 <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect name</p>
             </div>
             <div class="form-group">
                 <label th:for="id">ID</label>
-                <input type="text" th:field="*{user_id}" class="form-control" placeholder="ID를 입력하세요"
+                <input type="text" onkeyup="JoinForm_checkLoginIdDup();" th:field="*{user_id}" class="form-control" placeholder="ID를 입력하세요"
                        th:class="${#fields.hasErrors('user_id')}? 'form-control fieldError' : 'form-control'">
                 <p th:if="${#fields.hasErrors('user_id')}" th:errors="*{user_id}">Incorrect id</p>
+                <div th:if = "${session.memberError != null}" >
+                    <script>
+                        alert('이미 존재하는 ID입니다');
+                    </script>
+                </div>
             </div>
             <div class="form-group">
                 <label th:for="pw">비밀번호</label>
