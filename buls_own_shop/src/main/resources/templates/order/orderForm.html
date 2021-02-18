@@ -35,19 +35,25 @@
         </div>
         <div class="form-group">
             <label for="count">주문수량</label>
-            <input type="number" name="count" class="form-control" id="count" placeholder="주문 수량을 입력하세요">
+            <input type="number" name="count" class="form-control"
+                   id="count" placeholder="주문 수량을 입력하세요" onkeyup="checkStock()" onkeypress="checkStock()">
+            <p id="stockWarningMessage" style="display:none; color:red;" >재고량을 초과할 수 없습니다!</p>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="checkStock()">결제</button>
+        <button type="submit" class="btn btn-primary" disabled>결제</button>
 
     </form>
 </div>
 <script>
     function checkStock(){
-        const inputCount = $('#count').val();
-        const stockQuantity = "[[${product.stockQuantity}]]";
-        if(parseInt(inputCount) > parseInt(stockQuantity)){
-            console.log("동작 성공!");
-            $(document).reload();
+        var inputCount = $('#count').val();
+        var stockQuantity = "[[${product.stockQuantity}]]";
+        if(parseInt(inputCount) > parseInt(stockQuantity) || parseInt(inputCount) <= 0){
+            $('#stockWarningMessage').show();
+            $('.btn').attr('disabled', true);
+        }
+        else{
+            $('#stockWarningMessage').hide();
+            $('.btn').attr('disabled', false);
         }
     }
 </script>
