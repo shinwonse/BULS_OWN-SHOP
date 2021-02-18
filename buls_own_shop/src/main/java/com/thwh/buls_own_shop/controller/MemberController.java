@@ -33,8 +33,10 @@ public class MemberController {
     }
 
     @PostMapping("/members/new")
-    public String create(@Valid MemberForm memberForm, BindingResult result) {
-        if (result.hasErrors()) {
+    public String create(@Valid MemberForm memberForm, HttpSession session, Member member) {
+        List<Member> members = memberRepository.findById(member.getUser_id());
+        if (!members.isEmpty()) {
+            session.setAttribute("memberError", members);
             return "members/newMember";
         }
 
@@ -50,8 +52,8 @@ public class MemberController {
     }
 
     @PostMapping("/members/login")
-    public String login(HttpSession session, @Valid LoginForm loginForm, BindingResult result, String id, String pw) {
-        memberService.rootDefault();    // root 아이디 자동생성(이미 있으면 더 생성 안함)
+    public String login(HttpSession session, @Valid LoginForm loginForm, String id) {
+        memberService.rootDefault();// root 아이디 자동생성(이미 있으면 더 생성 안함)
         try {
             List<Member> ids = memberRepository.findById(id);
             if (ids.size() != 0) {
@@ -77,10 +79,10 @@ public class MemberController {
 
     }
 
+
     @GetMapping("/members/logout")
     public String logout(HttpSession session){
-        session.removeAttribute("member");
-        session.removeAttribute("errorMessage");
+        session.invalidate();
         System.out.println("logout success");
         return "redirect:/";
     }

@@ -6,6 +6,7 @@ import com.thwh.buls_own_shop.domain.Address;
 import com.thwh.buls_own_shop.domain.Member;
 import com.thwh.buls_own_shop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -86,6 +87,5 @@ public class MemberService {
         }
         memberRepository.save(member);
     }
-
 
 }

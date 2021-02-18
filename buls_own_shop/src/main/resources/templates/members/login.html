@@ -19,7 +19,10 @@
                 <input type="password" th:field="*{pw}" class="form-control" placeholder="비밀번호를 입력하세요"
                        th:class="${#fields.hasErrors('pw')}? 'form-control fieldError' : 'form-control'">
                 <div th:if = "${session.errorMessage != null}">
-                    <p>올바르지 않은 ID 또는 비밀번호입니다</p>
+<!--                    <div th:text="${@httpSession.removeAttribute('errorMessage')}"></div>-->
+                    <script th:inline="javascript">
+                        alert('존재하지 않는 ID이거나 로그인 정보가 잘못되었습니다');
+                    </script>
                 </div>
             </div>
             <div class="btn-area">
