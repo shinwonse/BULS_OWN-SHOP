@@ -33,20 +33,20 @@
                         <table class="table table-striped">
                             <div>
                                 <div class="entry-img">
-                                    <img th:src="@{{imageLink}(imageLink=${glove.imageLink})}" alt="" class="img-fluid">
+                                    <img th:src="@{{imageLink}(imageLink=${glove.imageLink})}" alt="" class="img-list">
                                 </div>
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="icofont-user" th:text="${glove.brand}"></i></li>
-                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
+<!--                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time th:datetime="${glove.get}">Jan 1, 2020</time></li>-->
                                     </ul>
                                 </div>
                                 <h2 th:text="${glove.name}" class="entry-title">
                                 </h2>
                                 <div class="entry-content">
-                                    <p th:text="${glove.price}"></p>
+                                    <h2 th:text="'&#8361; ' + ${glove.price}" class="entry-title" id="ab"></h2>
                                     <div th:if = "${glove.stockQuantity > 0}" class="read-more">
-                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${glove.id})}">구매</a>
+                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${glove.id})}" id="aa">구매</a>
                                     </div>
                                     <div th:if = "${glove.stockQuantity <= 0}" class="read-more">
                                         <a disabled="disabled">매진</a>

@@ -47,22 +47,27 @@ public class AdminController {
         if (result.hasErrors()) {
             return "administrator/createProductForm";
         }
-        // String src = multipartHttpServletRequest.getParameter("src");
-        MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
-        String originFileName = multipartFile.getOriginalFilename(); // 원본 파일 명
-        long fileSize = multipartFile.getSize(); // 파일 사이즈
+        if(productForm.getImageLink() != null) {
+            // String src = multipartHttpServletRequest.getParameter("src");
+            MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
+            String originFileName = multipartFile.getOriginalFilename(); // 원본 파일 명
+            long fileSize = multipartFile.getSize(); // 파일 사이즈
 
-        // 반드시 자신의 로컬 저장소로 바꿀 것
-        String PATH = "C:/Users/Jeong-EuiJae/Documents/GitHub/BULS_OWN-SHOP/buls_own_shop/src/main/resources/static/img/glove_images/";
+            // 반드시 자신의 로컬 저장소로 바꿀 것
+            String PATH = "C:/Users/Jeong-EuiJae/Documents/GitHub/BULS_OWN-SHOP/buls_own_shop/src/main/resources/static/img/glove_images/";
 
-        Long currentTime = System.currentTimeMillis();
-        String filePath = PATH + currentTime + originFileName;
-        try {
-            multipartFile.transferTo(new File(filePath));
-        } catch (IOException e) {
-            e.printStackTrace();
+            Long currentTime = System.currentTimeMillis();
+            String filePath = PATH + currentTime + originFileName;
+            try {
+                multipartFile.transferTo(new File(filePath));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            productForm.setImageLink("/img/glove_images/" + currentTime.toString() + originFileName);
         }
-        productForm.setImageLink("/img/glove_images/" + currentTime.toString() + originFileName);
+        else{
+            productForm.setImageLink("/img/preparing_image.jpg");
+        }
         productService.saveProduct(productForm);
         return "redirect:/admin";
     }
