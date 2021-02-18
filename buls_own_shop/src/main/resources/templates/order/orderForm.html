@@ -20,7 +20,7 @@
     </section><!-- End Breadcrumbs -->
 </main><!-- End #main -->
 <div class="container">
-    <form role="form" th:action="@{/order/{id}(id=${product.id})}" method="post">
+    <form role="form" th:action="@{/order/{productId}(productId=${product.id})}" method="post">
         <div class="form-group" name="itemId">
             <h3>주문회원</h3>
             <p th:text="${member.user_id}"></p>
@@ -30,12 +30,26 @@
             <p th:text="${product.name}"></p>
         </div>
         <div class="form-group">
+            <h3>잔여 수량</h3>
+            <p th:text="${product.stockQuantity}"></p>
+        </div>
+        <div class="form-group">
             <label for="count">주문수량</label>
             <input type="number" name="count" class="form-control" id="count" placeholder="주문 수량을 입력하세요">
         </div>
-        <a th:href="@{/members/{memberId}/myPage (memberId=${member.getUser_id()})}"
-           class="btn btn-primary" role="button">결제</a>
+        <button type="submit" class="btn btn-primary" onclick="checkStock()">결제</button>
+
     </form>
 </div>
+<script>
+    function checkStock(){
+        const inputCount = $('#count').val();
+        const stockQuantity = "[[${product.stockQuantity}]]";
+        if(parseInt(inputCount) > parseInt(stockQuantity)){
+            console.log("동작 성공!");
+            $(document).reload();
+        }
+    }
+</script>
 </body>
 <div th:replace="fragments/footer :: footer"></div>

@@ -120,6 +120,7 @@ public class ProductService {
         glove.setImageLink("/img/glove_images/glove_ex.jpg");
         glove.setPrice(1000);
         glove.setStockQuantity(10);
+        glove.setCategory("Glove");
         glove.setPosition("내야11");
         glove.setSize_glove(11.5);
 
@@ -137,6 +138,8 @@ public class ProductService {
         bat.setImageLink("/img/bat_images/bat_ex.jpg");
         bat.setPrice(10000);
         bat.setStockQuantity(10);
+        bat.setCategory("Bat");
+
         bat.setMaterial("카본");
         bat.setSize_bat("33-28");
         List<Product> productList = productRepository.findByName(bat.getName());
@@ -153,6 +156,8 @@ public class ProductService {
         spike.setImageLink("/img/spike_images/spike_ex.jpg");
         spike.setPrice(100);
         spike.setStockQuantity(11);
+        spike.setCategory("Spike");
+
         spike.setSole("징");
         spike.setSize_spike(270);
 

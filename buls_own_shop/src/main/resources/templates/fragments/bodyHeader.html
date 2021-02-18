@@ -33,7 +33,7 @@
             </div>
             <div th:if = "${session.member.user_id != 'root'}"> <!-- 일반 로그인 시 출력할 화면 -->
                 <a href="/members/logout" class="get-started-btn ml-auto">Logout</a>
-                <a href="/members/myPage" class="get-started-btn ml-auto">My Page</a>
+                <a th:href="@{/members/{memberId}/myPage (memberId=${session.member.getUser_id()})}" class="get-started-btn ml-auto">My Page</a>
             </div>
         </div>
     </div>

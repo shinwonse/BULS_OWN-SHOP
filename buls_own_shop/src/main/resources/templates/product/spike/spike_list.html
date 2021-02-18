@@ -28,25 +28,25 @@
         <div class="container">
 
             <div class="row">
-                <div  th:each="spikes : ${items}" class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                <div th:each="spike : ${spikes}" class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
                     <article class="entry">
                         <table class="table table-striped">
                             <div>
                                 <div class="entry-img">
-                                    <img th:src="${spikes.imageLink}" alt="" class="img-fluid">
+                                    <img th:src="${spike.imageLink}" alt="" class="img-fluid">
                                 </div>
                                 <div class="entry-meta">
                                     <ul>
-                                        <li class="d-flex align-items-center"><i class="icofont-user" th:text="${spikes.brand}"></i></li>
+                                        <li class="d-flex align-items-center"><i class="icofont-user" th:text="${spike.brand}"></i></li>
                                         <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
                                     </ul>
                                 </div>
-                                <h2 th:text="${spikes.name}" class="entry-title">
+                                <h2 th:text="${spike.name}" class="entry-title">
                                 </h2>
                                 <div class="entry-content">
-                                    <p th:text="${spikes.price}"></p>
+                                    <p th:text="${spike.price}"></p>
                                     <div class="read-more">
-                                        <a href="#" th:href="@{/product/spike/spike_buy/{id} (id=${spikes.id})}">Enter</a>
+                                        <a href="#" th:href="@{/product/spike/spike_buy/{id} (id=${spike.id})}">Enter</a>
                                     </div>
                                 </div>
                             </div>
