@@ -101,15 +101,49 @@ public class ProductService {
         return productRepository.findOne(productId);
     }
 
-    public Product updateProduct(Long productId, String name, String brand, String imageLink, int price, int stockQuantity) {
+    public void updateProduct(Long productId, ProductForm productForm) {
         Product product = productRepository.findOne(productId);
         product.setId(productId);
-        product.setName(name);
-        product.setBrand(brand);
-        product.setImageLink(imageLink);
-        product.setPrice(price);
-        product.setStockQuantity(stockQuantity);
-        return product;
+        product.setCategory(productForm.getProductType());
+        product.setName(productForm.getName());
+        product.setBrand(productForm.getBrandName());
+        product.setImageLink(productForm.getImageLink());
+        product.setPrice(productForm.getPrice());
+        product.setStockQuantity(productForm.getPrice());
+        
+        switch (productForm.getProductType()) {
+            case "Glove":
+                updateGlove((Glove) product, productForm);
+                productRepository.save(product);
+                return;
+            case "Bat":
+                updateBat((Bat) product, productForm);
+                productRepository.save(product);
+                return;
+            case "Spike":
+                updateSpike((Spike) product, productForm);
+                productRepository.save(product);
+                return;
+        }
+
+        // switch 문 내에서 함수가 끝나야 함
+        throw new IllegalStateException("잘못된 접근입니다.");
+    }
+
+
+    public void updateGlove(Glove glove, ProductForm productForm) {
+        glove.setSize_glove(productForm.getGloveSize());
+        glove.setPosition(productForm.getPosition());
+    }
+
+    public void updateBat(Bat bat, ProductForm productForm) {
+        bat.setSize_bat(productForm.getBatSize());
+        bat.setMaterial(productForm.getMaterial());
+    }
+
+    public void updateSpike(Spike spike, ProductForm productForm) {
+        spike.setSize_spike(productForm.getSpikeSize());
+        spike.setSole(productForm.getSole());
     }
 
 
@@ -168,4 +202,42 @@ public class ProductService {
         productRepository.save(spike);
     }
 
+    public ProductForm setOldProductForm(Product product) {
+        ProductForm productForm = new ProductForm();
+        productForm.setId(product.getId());
+        productForm.setName(product.getName());
+        productForm.setPrice(product.getPrice());
+        productForm.setProductType(product.getCategory());
+        productForm.setBrandName(product.getBrand());
+        productForm.setStockQuantity(product.getStockQuantity());
+        productForm.setImageLink(product.getImageLink());
+
+        switch(product.getCategory()){
+            case "Glove":
+                setOldGloveForm(productForm, (Glove)product);
+                return productForm;
+            case "Bat":
+                setOldBatForm(productForm, (Bat)product);
+                return productForm;
+            case "Spike":
+                setOldSpikeForm(productForm, (Spike)product);
+                return productForm;
+        }
+        return productForm;
+    }
+
+    private void setOldGloveForm(ProductForm productForm, Glove glove) {
+        productForm.setGloveSize(glove.getSize_glove());
+        productForm.setPosition(glove.getPosition());
+    }
+
+    private void setOldBatForm(ProductForm productForm, Bat bat) {
+        productForm.setBatSize(bat.getSize_bat());
+        productForm.setMaterial(bat.getMaterial());
+    }
+
+    private void setOldSpikeForm(ProductForm productForm, Spike spike) {
+        productForm.setSpikeSize(spike.getSize_spike());
+        productForm.setSole(spike.getSole());
+    }
 }

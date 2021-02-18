@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -61,7 +62,6 @@ public class AdminController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         productForm.setImageLink("/img/glove_images/" + currentTime.toString() + originFileName);
         productService.saveProduct(productForm);
         return "redirect:/admin";
@@ -79,5 +79,26 @@ public class AdminController {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
         return "administrator/memberList";
+    }
+
+    @GetMapping("admin/{productId}/edit")
+    public String updateProductForm(@PathVariable("productId") Long productId, Model model) {
+        Product product = productService.findOne(productId);
+        ProductForm oldProductForm = productService.setOldProductForm(product);
+
+        model.addAttribute("productForm", oldProductForm);
+        return "administrator/updateProductForm";
+    }
+
+    @PostMapping("admin/{productId}/edit")
+    public String update(@PathVariable("productId") Long productId,
+                         @Valid ProductForm productForm,
+                         BindingResult result) {
+        if (result.hasErrors()) {
+            return "administrator/createProductForm";
+        }
+        productService.updateProduct(productId, productForm);
+
+        return "redirect:/admin/productList";
     }
 }
