@@ -40,8 +40,9 @@ public class OrderController {
                         @PathVariable("productId") Long productId) {
         Member member = (Member) session.getAttribute("member");
         Product product = productService.findOne(productId);
+
         orderService.order(member.getOriginal_id(), product.getId(), count);
-        return "/myPage/myPage";
+        return "redirect:/members/" + member.getUser_id() + "/myPage";
     }
 
     @GetMapping("/orders")

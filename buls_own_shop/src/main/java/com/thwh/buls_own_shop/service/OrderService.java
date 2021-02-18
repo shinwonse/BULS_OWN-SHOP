@@ -29,11 +29,11 @@ public class OrderService {
      * 주문
      */
     @Transactional
-    public Long order(Long memberId, Long itemId, int count) {
+    public Long order(Long memberId, Long productId, int count) {
 
         // 엔티티 조회
         Member member = memberRepository.findOne(memberId);
-        Product product = productRepository.findOne(itemId);
+        Product product = productRepository.findOne(productId);
 
         // 주문 상품 생성
         OrderProduct orderProduct = OrderProduct.createOrderProduct(product, product.getPrice(), count);

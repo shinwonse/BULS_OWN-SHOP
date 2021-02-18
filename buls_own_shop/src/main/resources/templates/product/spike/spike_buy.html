@@ -1,66 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>BULS_OWN-SHOP</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="../../assets/img/favicon.png" rel="icon">
-  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../../assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="../../assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="../../assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Sailor - v2.3.0
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
 </head>
-
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+<div th:replace="fragments/bodyHeader :: bodyHeader"></div>
+<main id="main">
 
-      <h1 class="logo"><a href="index.html">BULS_OWN-SHOP</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="services.html">Glove</a></li>
-          <li><a href="portfolio.html">Bat</a></li>
-          <li><a href="pricing.html">Spike</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-      </nav><!-- .nav-menu -->
-
-      <a href="index.html" class="get-started-btn ml-auto">Join</a>
-      <a href="index.html" class="get-started-btn ml-auto">Log-in</a>
-      <a href="index.html" class="get-started-btn ml-auto">Logout</a>
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Spike</h2>
+        <ol>
+          <li><a href="/main.html">Home</a></li>
+          <li>Spike</li>
+        </ol>
+      </div>
     </div>
-  </header><!-- End Header -->
+  </section><!-- End Breadcrumbs -->
+  <!-- ======= Blog Section ======= -->
+  <section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <img th:src="${spike.imageLink}" class="wonse">
+        </div>
+
+        <div class="col-lg-4 portfolio-info">
+          <h3 th:text="${spike.name}"></h3>
+          <table>
+            <tr>
+              <th>Brand: </th>
+              <td th:text="${spike.brand}"></td>
+            </tr>
+            <tr>
+              <th>Sole: </th>
+              <td th:text="${spike.sole}"></td>
+            </tr>
+            <tr>
+              <th>Size: </th>
+              <td th:text="${spike.size_spike}"></td>
+            </tr>
+            <tr>
+              <th>Price: </th>
+              <td th:text="${spike.price}"></td>
+            </tr>
+          </table>
+          <section id="blog" class="blog">
+            <article class="entry" id="wonse1">
+              <div class="entry-content">
+                <div class="read-more">
+                  <a th:href="@{/order/{productId} (productId=${spike.getId()})}"
+                     class="btn btn-primary" role="button">Buy</a>
+                </div>
+              </div>
+            </article>
+          </section><!-- End Blog Section -->
+        </div>
+      </div>
+    </div>
+  </section><!-- End Portfolio Details Section -->
+</main><!-- End #main -->
+</body>
+<div th:replace="fragments/footer :: footer"></div>

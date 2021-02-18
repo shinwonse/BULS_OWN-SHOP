@@ -91,11 +91,4 @@ public class MemberController {
         model.addAttribute("member", member);
         return "/myPage/myPage";
     }
-    @GetMapping("/members/myPage")
-    public String myPage_main(){ return "myPage/myPage";}
-
-    @RequestMapping("/members/myPage")
-    public String myPage(){
-        return "myPage/myPage";
-    }
 }

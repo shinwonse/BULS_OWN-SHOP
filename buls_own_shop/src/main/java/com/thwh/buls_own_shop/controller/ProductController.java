@@ -39,7 +39,7 @@ public class ProductController {
     public String bat_list(Model model) {
         productService.makeDefaultBat();
         List<Bat> bats = productService.findBats();
-        model.addAttribute("items", bats);
+        model.addAttribute("bats", bats);
         return "/product/bat/bat_list";
     }
 
@@ -55,7 +55,7 @@ public class ProductController {
     public String spike_list(Model model) {
         productService.makeDefaultSpike();
         List<Spike> spikes = productService.findSpikes();
-        model.addAttribute("items", spikes);
+        model.addAttribute("spikes", spikes);
         return "/product/spike/spike_list";
     }
 

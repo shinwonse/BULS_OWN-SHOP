@@ -45,8 +45,11 @@
                                 </h2>
                                 <div class="entry-content">
                                     <p th:text="${glove.price}"></p>
-                                    <div class="read-more">
-                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${glove.id})}">Enter</a>
+                                    <div th:if = "${glove.stockQuantity > 0}" class="read-more">
+                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${glove.id})}">구매</a>
+                                    </div>
+                                    <div th:if = "${glove.stockQuantity <= 0}" class="read-more">
+                                        <a disabled="disabled">매진</a>
                                     </div>
                                 </div>
                             </div>
