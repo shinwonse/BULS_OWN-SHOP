@@ -8,6 +8,28 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+#aa {
+  position: absolute;
+  bottom: 100px;
+}
+
+#ab {
+  position: absolute;
+  bottom: 130px;
+}
+
+.product-name{
+  width:300px;
+  text-align: center;
+
+}
+
+.img-list{
+  width: 250px;
+  height: 250px;
+  align-content: center;
+}
+
 th {
   text-align: center;
 }
@@ -1472,7 +1494,10 @@ section {
 .blog {
   padding: 40px 0 40px 0;
 }
-
+.entry {
+  width: 330px;
+  height: 527px;
+}
 .blog .entry {
   padding: 20px;
   margin-bottom: 60px;
@@ -1536,10 +1561,14 @@ section {
   line-height: 24px;
   font-size: 15px;
 }
-
+.read-more {
+  margin-bottom: 10px;
+  margin-right: 50px;
+}
 .blog .entry .entry-content .read-more {
   -moz-text-align-last: right;
   text-align-last: right;
+
 }
 
 .blog .entry .entry-content .read-more a {
