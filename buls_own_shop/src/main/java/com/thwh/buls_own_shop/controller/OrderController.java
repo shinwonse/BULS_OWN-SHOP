@@ -45,17 +45,11 @@ public class OrderController {
         return "redirect:/members/" + member.getUser_id() + "/myPage";
     }
 
-    @GetMapping("/orders")
-    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
-        List<Order> orders = orderService.findOrders(orderSearch);
-        model.addAttribute("orders", orders);
-
-        return "order/orderList";
-    }
-
-    @PostMapping("/orders/{orderId}/cancel")
-    public String cancelOrder(@PathVariable("orderId") Long orderId) {
+    @GetMapping("/order/{orderId}/cancel")
+    public String cancelOrder(@PathVariable("orderId") Long orderId, HttpSession session) {
         orderService.cancelOrder(orderId);
-        return "redirect:/orders";
+        Member member = (Member) session.getAttribute("member");
+
+        return "redirect:/members/" + member.getUser_id() + "/myPage";
     }
 }
