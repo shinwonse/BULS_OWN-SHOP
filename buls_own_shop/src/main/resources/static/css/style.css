@@ -1539,6 +1539,9 @@ section {
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
+.entry-img {
+  text-align: center;
+}
 
 .blog .entry .entry-img {
   max-height: 400px;
