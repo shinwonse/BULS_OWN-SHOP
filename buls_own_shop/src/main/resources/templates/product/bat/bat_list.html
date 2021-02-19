@@ -33,21 +33,22 @@
                         <table class="table table-striped">
                             <div>
                                 <div class="entry-img">
-                                    <img th:src="@{{imageLink}(imageLink=${bat.imageLink})}" alt="" class="img-fluid">
+                                    <img th:src="@{{imageLink}(imageLink=${bat.imageLink})}" alt="" class="img-list">
                                 </div>
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="icofont-user" th:text="${bat.brand}"></i></li>
-                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
                                     </ul>
                                 </div>
                                 <h2 th:text="${bat.name}" class="entry-title">
                                 </h2>
                                 <div class="entry-content">
-                                    <p th:text="${bat.price}"></p>
-                                    <div class="read-more">
-                                        <a th:href="@{/order/{productId} (productId=${bat.getId()})}"
-                                           class="btn btn-primary" role="button">Buy</a>
+                                    <h2 th:text="'&#8361; ' + ${bat.price}" class="entry-title" id="bat_price"></h2>
+                                    <div th:if = "${bat.stockQuantity > 0}" class="read-more">
+                                        <a href="#" th:href="@{/product/bat/bat_buy/{id} (id=${bat.id})}" id="bat_buy">구매</a>
+                                    </div>
+                                    <div th:if = "${bat.stockQuantity <= 0}" class="read-more">
+                                        <a disabled="disabled" id="bat_out_of_stock">품절</a>
                                     </div>
                                 </div>
                             </div>

@@ -33,20 +33,22 @@
                         <table class="table table-striped">
                             <div>
                                 <div class="entry-img">
-                                    <img th:src="${spike.imageLink}" alt="" class="img-fluid">
+                                    <img th:src="${spike.imageLink}" alt="" class="img-list">
                                 </div>
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="icofont-user" th:text="${spike.brand}"></i></li>
-                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time datetime="2020-01-01">Jan 1, 2020</time></li>
                                     </ul>
                                 </div>
                                 <h2 th:text="${spike.name}" class="entry-title">
                                 </h2>
                                 <div class="entry-content">
-                                    <p th:text="${spike.price}"></p>
-                                    <div class="read-more">
-                                        <a href="#" th:href="@{/product/spike/spike_buy/{id} (id=${spike.id})}">Enter</a>
+                                    <h2 th:text="'&#8361; ' + ${spike.price}" class="entry-title" id="spike_price"></h2>
+                                    <div th:if = "${spike.stockQuantity > 0}" class="read-more">
+                                        <a href="#" th:href="@{/product/spike/spike_buy/{id} (id=${spike.id})}" id="spike_buy">구매</a>
+                                    </div>
+                                    <div th:if = "${spike.stockQuantity <= 0}" class="read-more">
+                                        <a disabled="disabled" id="spike_out_of_stock">품절</a>
                                     </div>
                                 </div>
                             </div>

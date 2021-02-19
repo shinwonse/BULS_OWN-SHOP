@@ -8,14 +8,49 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-#aa {
+#glove_buy {
   position: absolute;
   bottom: 100px;
 }
 
-#ab {
+#glove_price {
   position: absolute;
   bottom: 130px;
+}
+
+#glove_out_of_stock{
+  position: absolute;
+  bottom: 100px;
+}
+
+#bat_buy {
+  position: absolute;
+  bottom: 100px;
+}
+
+#bat_price {
+  position: absolute;
+  bottom: 130px;
+}
+
+#bat_out_of_stock{
+  position: absolute;
+  bottom: 100px;
+}
+
+#spike_buy {
+  position: absolute;
+  bottom: 100px;
+}
+
+#spike_price {
+  position: absolute;
+  bottom: 130px;
+}
+
+#spike_out_of_stock{
+  position: absolute;
+  bottom: 100px;
 }
 
 .product-name{

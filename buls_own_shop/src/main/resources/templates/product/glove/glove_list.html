@@ -38,18 +38,17 @@
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="icofont-user" th:text="${glove.brand}"></i></li>
-<!--                                        <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><time th:datetime="${glove.get}">Jan 1, 2020</time></li>-->
                                     </ul>
                                 </div>
                                 <h2 th:text="${glove.name}" class="entry-title">
                                 </h2>
                                 <div class="entry-content">
-                                    <h2 th:text="'&#8361; ' + ${glove.price}" class="entry-title" id="ab"></h2>
+                                    <h2 th:text="'&#8361; ' + ${glove.price}" class="entry-title" id="glove_price"></h2>
                                     <div th:if = "${glove.stockQuantity > 0}" class="read-more">
-                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${glove.id})}" id="aa">구매</a>
+                                        <a href="#" th:href="@{/product/glove/glove_buy/{id} (id=${glove.id})}" id="glove_buy">구매</a>
                                     </div>
                                     <div th:if = "${glove.stockQuantity <= 0}" class="read-more">
-                                        <a disabled="disabled">매진</a>
+                                        <a disabled="disabled" id="glove_out_of_stock">품절</a>
                                     </div>
                                 </div>
                             </div>
