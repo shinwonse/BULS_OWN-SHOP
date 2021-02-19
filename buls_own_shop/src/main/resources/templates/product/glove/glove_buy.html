@@ -13,7 +13,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <h2>Glove</h2>
         <ol>
-          <li><a href="/main.html">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li>Glove</li>
         </ol>
       </div>
@@ -48,17 +48,13 @@
               <th style="text-align: right">Price: </th>
               <td style="text-align: left" th:text="${glove.price}"></td>
             </tr>
+          </table><br>
+          <table>
+            <tr>
+              <a th:href="@{/order/{productId} (productId=${glove.getId()})}"
+                 class="get-started-btn ml-auto" role="button">Buy</a>
+            </tr>
           </table>
-          <section id="blog" class="blog">
-            <article class="entry" id="wonse1">
-              <div class="entry-content">
-                <div class="read-more">
-                  <a th:href="@{/order/{productId} (productId=${glove.getId()})}"
-                     class="btn btn-primary" role="button">Buy</a>
-                </div>
-              </div>
-            </article>
-          </section><!-- End Blog Section -->
         </div>
       </div>
     </div>

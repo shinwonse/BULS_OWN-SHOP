@@ -13,7 +13,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <h2>Spike</h2>
         <ol>
-          <li><a href="/main.html">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li>Spike</li>
         </ol>
       </div>
@@ -31,32 +31,28 @@
           <h3 th:text="${spike.name}"></h3>
           <table>
             <tr>
-              <th>Brand: </th>
-              <td th:text="${spike.brand}"></td>
+              <th style="text-align: right">Brand: </th>
+              <td style="text-align: left" th:text="${spike.brand}"></td>
             </tr>
             <tr>
-              <th>Sole: </th>
-              <td th:text="${spike.sole}"></td>
+              <th style="text-align: right">Sole: </th>
+              <td style="text-align: left" th:text="${spike.sole}"></td>
             </tr>
             <tr>
-              <th>Size: </th>
-              <td th:text="${spike.size_spike}"></td>
+              <th style="text-align: right">Size: </th>
+              <td style="text-align: left" th:text="${spike.size_spike}"></td>
             </tr>
             <tr>
-              <th>Price: </th>
-              <td th:text="${spike.price}"></td>
+              <th style="text-align: right">Price: </th>
+              <td style="text-align: left" th:text="${spike.price}"></td>
+            </tr>
+          </table><br>
+          <table>
+            <tr>
+              <a th:href="@{/order/{productId} (productId=${spike.getId()})}"
+                 class="get-started-btn ml-auto" role="button">Buy</a>
             </tr>
           </table>
-          <section id="blog" class="blog">
-            <article class="entry" id="wonse1">
-              <div class="entry-content">
-                <div class="read-more">
-                  <a th:href="@{/order/{productId} (productId=${spike.getId()})}"
-                     class="btn btn-primary" role="button">Buy</a>
-                </div>
-              </div>
-            </article>
-          </section><!-- End Blog Section -->
         </div>
       </div>
     </div>
