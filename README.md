@@ -4,11 +4,13 @@ online baseball shop
 
 ### [BULS_OWN SHOP Wiki](https://github.com/shinwonse/BULS_OWN-SHOP/wiki)
 
-### 스프링 기본 설정
-![스프링 설정 개요](img/spring_init.png)
+<!-- ### 스프링 기본 설정
+![스프링 설정 개요](img/spring_init.png) -->
 
 ## Home
 ![1](https://user-images.githubusercontent.com/62709718/108522293-06760180-7310-11eb-9e3d-37b6aff946e2.png)
+
+    쇼핑몰 메인 페이지이다.
 
 ## Register
 ![1](https://user-images.githubusercontent.com/62709718/108523015-c9f6d580-7310-11eb-9b41-448f7f6936ee.png)
@@ -20,3 +22,24 @@ online baseball shop
 
 ## Product List
 ![1](https://user-images.githubusercontent.com/62709718/108525215-3246b680-7313-11eb-8315-0f36bf2d728f.png)
+
+## Product Buy
+![image](https://user-images.githubusercontent.com/62709718/108599519-fa07ac80-73d4-11eb-9a6d-b013d43f1db4.png)
+
+## Order Page
+![image](https://user-images.githubusercontent.com/62709718/108599549-1f94b600-73d5-11eb-95f9-f3291851d8ff.png)
+
+## My Page
+![image](https://user-images.githubusercontent.com/62709718/108599557-2f13ff00-73d5-11eb-8af8-567747fe71a2.png)
+
+## Admin Main
+![image](https://user-images.githubusercontent.com/62709718/108599568-481cb000-73d5-11eb-8c8d-bdd25b85e52b.png)
+
+## Create Product
+![image](https://user-images.githubusercontent.com/62709718/108599575-55d23580-73d5-11eb-9fbd-42269865a15c.png)
+
+## Product List
+![image](https://user-images.githubusercontent.com/62709718/108599592-71d5d700-73d5-11eb-85b5-3e89733f39ab.png)
+
+## Member List
+![image](https://user-images.githubusercontent.com/62709718/108599680-ec9ef200-73d5-11eb-9761-aefa71636bfa.png)
