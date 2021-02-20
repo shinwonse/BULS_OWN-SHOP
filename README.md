@@ -33,29 +33,59 @@ online baseball shop
 
 
 ## Login
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108523151-f01c7580-7310-11eb-8448-f4fbc6fea7df.png)
 
+>사용자는 아이디와 비밀번호를 입력해서 로그인할 수 있다. 이 때, 아이디와 비밀번호 중 하나라도 틀리면 로그인에 실패했다는 팝업창이 뜬다.
 
 ## Product List
+
+---
+
 ![1](https://user-images.githubusercontent.com/62709718/108525215-3246b680-7313-11eb-8315-0f36bf2d728f.png)
 
+>데이터베이스에 저장되어있는 상품들을 차례로 나열한다. 상품의 브랜드, 이름, 가격을 차례로 출력하고 구매 버튼을 눌러 상품의 상세 페이지로 이동할 수 있다.
+
 ## Product Buy
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599519-fa07ac80-73d4-11eb-9a6d-b013d43f1db4.png)
 
 ## Order Page
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599549-1f94b600-73d5-11eb-95f9-f3291851d8ff.png)
 
 ## My Page
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599557-2f13ff00-73d5-11eb-8af8-567747fe71a2.png)
 
 ## Admin Main
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599568-481cb000-73d5-11eb-8c8d-bdd25b85e52b.png)
 
 ## Create Product
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599575-55d23580-73d5-11eb-9fbd-42269865a15c.png)
 
 ## Product List
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599592-71d5d700-73d5-11eb-85b5-3e89733f39ab.png)
 
 ## Member List
+
+---
+
 ![image](https://user-images.githubusercontent.com/62709718/108599680-ec9ef200-73d5-11eb-9761-aefa71636bfa.png)
