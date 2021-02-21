@@ -26,8 +26,11 @@ public class MemberController {
     private final MemberRepository memberRepository;
 
     @GetMapping("/members/new")
-    public String createForm(Model model) {
+    public String createForm(Model model, HttpSession session) {
         memberService.rootDefault();    // root 아이디 자동생성(이미 있으면 더 생성 안함)
+        if (session.getAttribute("memberError") != null){
+            session.removeAttribute("memberError");
+        }
         model.addAttribute("memberForm", new MemberForm());
         return "members/newMember";
     }
@@ -46,7 +49,10 @@ public class MemberController {
 
 
     @GetMapping("/members/login")
-    public String loginForm(Model model) {
+    public String loginForm(Model model, HttpSession session) {
+        if (session.getAttribute("errorMessage") != null){
+            session.removeAttribute("errorMessage");
+        }
         model.addAttribute("loginForm", new LoginForm());
         return "members/login";
     }
